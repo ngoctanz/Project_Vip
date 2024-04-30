@@ -2,7 +2,7 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,19 +51,21 @@
       </div>
     </header>
     <!-- carousel  -->
-    <div class="carousel">
+    <div class="slide_show">
       <!-- list item  -->
       <div class="list-item">
-        <!-- item1  -->
+        <!-- item 1 -->
         <div class="list-item__item">
-          <img src="./assets/image/Home1.jpg" alt="" />
+          <video autoplay>
+            <source
+              src="./assets/image/HOME_S24_Series_Main-KV_1440x640_pc.webm"
+              type="video/webm"
+            />
+          </video>
           <div class="container">
-            <section class="list-item__item--content">
+            <section class="list-item__item--content n1">
               <h1 class="h1-content">Đại lễ deal siêu mê</h1>
               <p class="p-content">
-                Giảm <b>50%</b> thu cũ đổi mới lên đến
-                <strong>4 triệu đồng</strong>, thanh toán online giảm thêm
-                <strong>8%</strong> <br />
                 Từ <strong><time>22.4</time></strong> đến
                 <strong><time>05.05.2024</time></strong
                 >.
@@ -74,16 +76,20 @@
             </section>
           </div>
         </div>
-        <!-- item 2 -->
+        <!-- item2  -->
         <div class="list-item__item">
-          <img src="./assets/image/Home2.jpg" alt="" />
+          <img src="./assets/image/Home1.jpg" alt="" />
           <div class="container">
             <section class="list-item__item--content n2">
-              <h1 class="h1-content">
-                Trãi nghiệm AI TV đỉnh cao <br />
-                Neo QLED|Neo QLED 8K|OLED
-              </h1>
-              <p class="p-content">Combo quà tặng AI TV lên đến 40 triệu</p>
+              <h1 class="h1-content">Đại lễ deal siêu mê</h1>
+              <p class="p-content">
+                Giảm <b>50%</b> thu cũ đổi mới lên đến
+                <strong>4 triệu đồng</strong>, thanh toán online giảm thêm
+                <strong>8%</strong> <br />
+                Từ <strong><time>22.4</time></strong> đến
+                <strong><time>05.05.2024</time></strong
+                >.
+              </p>
               <div class="action">
                 <a href="#!" class="btn btn_home_page">Mua ngay</a>
               </div>
@@ -91,19 +97,15 @@
           </div>
         </div>
         <!-- item 3 -->
-        <div class="list-item__item">
-          <img src="./assets/image/Home.jpg" alt="" />
+        <div class="list-item__item item3">
+          <img src="./assets/image/Home2.jpg" alt="" />
           <div class="container">
             <section class="list-item__item--content n3">
-              <h1 class="h1-content">Đại lễ deal siêu mê</h1>
-              <p class="p-content">
-                Giảm <b>50%</b> thu cũ đổi mới lên đến
-                <strong>4 triệu đồng</strong>, thanh toán online giảm thêm
-                <strong>8%</strong> <br />
-                Từ <strong><time>22.4</time></strong> đến
-                <strong><time>05.05.2024</time></strong
-                >.
-              </p>
+              <h1 class="h1-content">
+                Trãi nghiệm AI TV đỉnh cao <br />
+                Neo QLED|Neo QLED 8K|OLED
+              </h1>
+              <p class="p-content">Combo quà tặng AI TV lên đến 40 triệu</p>
               <div class="action">
                 <a href="#!" class="btn btn_home_page">Mua ngay</a>
               </div>
@@ -134,10 +136,10 @@
       <section class="button__list-item">
         <!-- nút chuyển qua về -->
         <div class="button__vector">
-          <button class="button__vector--left">
+          <button id="button__vector--left">
             <img src="./assets/icon/arrow_left.svg" alt="" />
           </button>
-          <button class="button__vector--right">
+          <button id="button__vector--right">
             <img src="./assets/icon/arrow_right.svg" alt="" />
           </button>
         </div>
