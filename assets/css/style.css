@@ -21,9 +21,21 @@ a {
   color: #171100;
   font-size: 4.5rem;
   font-weight: 700;
-  line-height: 1.17; /* 117.241% */
-  letter-spacing: -1.16px;
+  line-height: 1.17;
+  width: 700px;
+}
+.h2-content {
+  color: #171100;
+  font-size: 3.6rem;
+  font-weight: 600;
+  line-height: 1.17;
   width: 600px;
+}
+.h3-content {
+  color: #171100;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.17;
 }
 .p-content {
   margin-top: 20px;
@@ -84,6 +96,12 @@ a {
   width: 23px;
   height: 23px;
 }
+.nav__content li a:hover {
+  opacity: 0.9;
+  color: #171100;
+  text-align: center;
+  text-shadow: 1px 0 0 currentColor;
+}
 /* ==================carousel=================== */
 
 .slide_show {
@@ -139,7 +157,7 @@ a {
   position: absolute;
   position: absolute;
   top: 12%;
-  left: 29%;
+  left: 26%;
   text-align: center;
   display: flex;
   align-items: center;
@@ -147,6 +165,28 @@ a {
 }
 .list-item__item--content.n4 {
   position: absolute;
+}
+/* tìm hiểu thêm  */
+.action.flex {
+  display: flex;
+  align-items: center;
+}
+.action.flex .more__btn {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-right: 18px;
+  display: inline-block;
+  position: relative;
+  color: black;
+}
+.action.flex .more__btn::before {
+  content: "";
+  border-radius: 12px;
+  position: absolute;
+  background-color: #000;
+  height: 3px;
+  width: 107px;
+  bottom: -6px;
 }
 /* nút chuyển hai bên  */
 .button__vector {
@@ -211,4 +251,174 @@ a {
 .button--dot .dots:hover {
   background-color: #000000;
   border: 2px solid #000000;
+}
+/* nội dung main  */
+.main-first-item {
+  padding: 20px 0;
+  height: 900px;
+}
+/* thẻ h2 tiêu đề  */
+.first-item {
+  margin-top: 30px;
+  padding: 21px 0;
+}
+.first-item__top {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.first-item__top .h2-content {
+  display: inline;
+  padding: 15px 0;
+}
+
+.first-item__bottom {
+  background-color: #7b7a798f;
+}
+/* danh mục  */
+.first-item__bottom--top {
+  margin-bottom: 30px;
+}
+.first-item__bottom--top ul {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+.first-item__bottom--top li a {
+  font-size: 1.7rem;
+  color: #000;
+  padding: 8px 15px;
+}
+/* các thẻ sp  */
+/* cụ tổ của các thẻ sp  */
+.first-item__bottom--bottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* hàng sp đầu  */
+/* item sp bên trái  */
+.first-item__bottom--bottom {
+  width: 100%;
+  height: 680px;
+}
+.first-item__bottom--bottom--left {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.big-image {
+  overflow: hidden;
+  border-radius: 22px;
+}
+.first-item__bottom--bottom--left:hover img {
+  transform: translateY(-5px) scale(1.04, 1.04);
+}
+/* chỉnh ảnh khổ lớn  */
+.first-item__bottom--bottom--left .big-image img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  object-position: top;
+  transition: all 0.3s ease;
+  border-radius: 22px;
+  box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.119);
+}
+/* nội dung trong thẻ sp  */
+.content-in-photo.big-content {
+  position: absolute;
+  bottom: 40px;
+  width: 500px;
+  left: 12%;
+  text-align: center;
+}
+/* cố định tiêu đề - chỉnh tiêu đề riêng cho big item */
+.content-in-photo.big-content .h3-content {
+  margin-bottom: 15px;
+  color: #171100;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.17;
+  position: absolute; /* Cố định vị trí */
+  bottom: 30px;
+  left: 0;
+  margin-bottom: 5px;
+}
+/* chỉnh .mini-desc riêng cho big item  */
+.content-in-photo.big-content .mini-desc {
+  margin-top: 20px;
+  font-size: 1.6rem;
+  width: 470px;
+  color: #5f5b53;
+  font-weight: 400;
+  line-height: 1.67;
+}
+/* chỉnh out - in của btn vs p  */
+.mini-desc {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.2s ease;
+}
+
+.btn-first-item {
+  opacity: 0;
+  position: absolute;
+  left: 39%;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.first-item__bottom--bottom--left:hover .mini-desc {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+}
+
+.first-item__bottom--bottom--left:hover .btn-first-item {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-25px);
+}
+.btn.btn-first-item:hover {
+  opacity: 0.8;
+}
+/* nội dung sp bên phải  */
+/* sp bên trên  */
+.first-item__bottom--bottom--right {
+  width: 50%;
+  height: 100%;
+  padding: 8px 0 8px 20px;
+}
+.first-item__bottom--bottom--right .item_bottom--right-bottom,
+.first-item__bottom--bottom--right .item__bottom--right-top {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+.item_bottom--right-bottom .item--top,
+.item__bottom--right-top .item--top {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+.item--top img {
+  height: 50%;
+  width: 50%;
+}
+/* h3 riêng cho dãy sp  */
+.content-in-photo .h3-content {
+  font-size: 16px;
+}
+/* p riêng cho dãy sp  */
+.content-in-photo .mini-desc {
+  font-size: 12px;
+}
+/* content chung của các thẻ sp  */
+.item__bottom--right-bottom .content-in-photo,
+.item__bottom--right-top .content-in-photo {
+  position: absolute;
+  text-align: center;
+  width: 250px;
+  left: 7%;
+  bottom: 30px;
 }

@@ -124,10 +124,6 @@ videos.forEach((video) => {
   video.addEventListener("mouseover", function () {
     video.play();
   });
-
-  video.addEventListener("ended", function () {
-    vector_right.click();
-  });
 });
 
 document.addEventListener("visibilitychange", function () {
