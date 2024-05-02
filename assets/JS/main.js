@@ -1,32 +1,8 @@
-// const list_items = document.querySelector(".slide_show .list-item");
-// const items = document.querySelectorAll(".list-item__item");
-// const dots = document.querySelectorAll(".button--dot span");
-// const vector_left = document.getElementById("button__vector--left");
-// const vector_right = document.getElementById("button__vector--right");
 // // khai báo biến active = 0
 // let active = 0;
 // // đếm thứ tự của item đánh số từ 0
 // let lengthItems = items.length - 1;
 
-// // nút chuyển phải
-// vector_right.onclick = function () {
-//   if (active + 1 > lengthItems) {
-//     active = 0;
-//   } else {
-//     active = active + 1;
-//   }
-//   reloadSlide();
-// };
-
-// // nút chuyển trái
-// vector_left.onclick = function () {
-//   if (active - 1 < 0) {
-//     active = lengthItems;
-//   } else {
-//     active = active - 1;
-//   }
-//   reloadSlide();
-// };
 // // sau 6s tự active nút chuyển phải
 // let refreshSlider = setInterval(() => {
 //   vector_right.click();
@@ -50,15 +26,6 @@
 //   refreshSlider = setInterval(() => {
 //     vector_right.click();
 //   }, 8000);
-// }
-
-// // active cho dots
-// dots.forEach((span, key) => {
-//   span.addEventListener("click", function () {
-//     active = key;
-//     reloadSlide();
-//   });
-// });
 
 const list_items = document.querySelector(".slide_show .list-item");
 const items = document.querySelectorAll(".list-item__item");
@@ -69,6 +36,7 @@ const vector_right = document.getElementById("button__vector--right");
 let active = 0;
 let lengthItems = items.length - 1;
 
+// nút chuyển phải
 vector_right.onclick = function () {
   if (active + 1 > lengthItems) {
     active = 0;
@@ -78,6 +46,7 @@ vector_right.onclick = function () {
   reloadSlide();
 };
 
+// nút chuyển trái
 vector_left.onclick = function () {
   if (active - 1 < 0) {
     active = lengthItems;
@@ -87,6 +56,7 @@ vector_left.onclick = function () {
   reloadSlide();
 };
 
+// chuyển phải sau 6s
 let refreshSlider = setInterval(() => {
   vector_right.click();
 }, 6000);
@@ -101,6 +71,7 @@ function reloadSlide() {
   }
   dots[active].classList.add("active--dots");
 
+  // reset dếm sau khi bấm chuyển
   clearInterval(refreshSlider);
   refreshSlider = setInterval(() => {
     vector_right.click();
@@ -111,18 +82,6 @@ dots.forEach((span, key) => {
   span.addEventListener("click", function () {
     active = key;
     reloadSlide();
-  });
-});
-
-const videos = document.querySelectorAll(".list-item__item video");
-
-videos.forEach((video) => {
-  video.addEventListener("click", function () {
-    video.play();
-  });
-
-  video.addEventListener("mouseover", function () {
-    video.play();
   });
 });
 
@@ -137,4 +96,23 @@ document.addEventListener("visibilitychange", function () {
       vector_right.click();
     }, 6000);
   }
+});
+
+// Lấy danh sách các mục và các slide
+var listItems = document.querySelectorAll(".products_list li");
+var slides = document.querySelectorAll(
+  ".slide_show--products .container--item-list"
+);
+
+// Thêm click cho mỗi mục
+listItems.forEach(function (listItem, index) {
+  listItem.addEventListener("click", function () {
+    // Xóa class 'active' khỏi tất cả các slide
+    slides.forEach(function (slide) {
+      slide.classList.remove("active");
+    });
+
+    // Thêm class 'active' cho slide tương ứng
+    slides[index].classList.add("active");
+  });
 });
