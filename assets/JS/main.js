@@ -98,21 +98,42 @@ document.addEventListener("visibilitychange", function () {
   }
 });
 
+// js cho trang sản phẩm
 // Lấy danh sách các mục và các slide
 var listItems = document.querySelectorAll(".products_list li");
 var slides = document.querySelectorAll(
   ".slide_show--products .container--item-list"
 );
+var list_slides = document.querySelector(
+  ".slide_show--products .js-content-slide"
+);
+const length = slides.length;
+current = 0;
 
-// Thêm click cho mỗi mục
-listItems.forEach(function (listItem, index) {
-  listItem.addEventListener("click", function () {
-    // Xóa class 'active' khỏi tất cả các slide
-    slides.forEach(function (slide) {
-      slide.classList.remove("active");
-    });
+function changeSlideItem() {
+  if (current == length - 1) {
+    current = 0;
+    let width = slides[0].offsetWidth;
+    list_slides.style.transform = `translateX(0)`;
+  } else {
+    current++;
+    let width = slides[0].offsetWidth;
+    list_slides.style.transform = `translateX(${width * -1 * current}px)`;
+  }
 
-    // Thêm class 'active' cho slide tương ứng
-    slides[index].classList.add("active");
+  // đổi hiệu ứng active của danh mục
+  let lastActivelist = document.querySelector(".products_list li.active_sp");
+  if (lastActivelist) {
+    lastActivelist.classList.remove("active_sp");
+  }
+  listItems[current].classList.add("active_sp");
+}
+
+listItems.forEach((li, key) => {
+  li.addEventListener("click", function () {
+    current = key;
+    // khi truyền biến current = 0 vào changeSlideItem thì current trong đó sẽ được +1
+    //  nên slide 2 sẽ xuất hiện
+    changeSlideItem((current -= 1));
   });
 });

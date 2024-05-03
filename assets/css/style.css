@@ -6,7 +6,7 @@ html {
 }
 body {
   font-size: 1.6rem;
-  font-family: "Sora", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
 }
 /* ==================================common================================== */
 .container {
@@ -253,17 +253,14 @@ a {
 }
 /* =================================main================================== */
 /* trang sp đầu  */
-.bg-color {
-  padding: 60px 0 65px;
-
-  width: 1450px;
+/* màu nền ngoài cùng  */
+.background--color {
+  z-index: -1;
+  width: 1400px;
+  height: 800px;
   margin: 0 auto;
   background-color: #f4f3f3c2;
 }
-.hero-container {
-  position: relative;
-}
-
 /* title h2  */
 .hero .title-item {
   padding: 36px 10px 0px;
@@ -273,30 +270,35 @@ a {
   text-align: center;
   padding: 16px;
 }
-.hero .container--item-list {
-  padding: 24px 0;
-}
+
 /* danh mục sản phẩm  */
 .products_list {
-  position: absolute;
-  top: 145px;
+  padding: 15px 0 10px;
+  top: -10px;
   left: 30%;
   z-index: 1;
+  position: absolute;
+  transition: all 0.3s ease;
 }
 .products_list ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 50px;
 }
-.products_list li {
+.products_list .list_sp {
   cursor: pointer;
-  padding: 15px;
+  padding: 15px 0 4px;
   color: #000;
-  font-weight: 500;
   font-size: 1.8rem;
 }
+/* các trang sản phẩm  */
+.hero .container--item-list {
+  padding: 60px 0;
+}
+
 /* nội dung các sản phẩm  */
+
 .main-products {
   width: 100%;
   height: 680px;
@@ -313,7 +315,7 @@ a {
   overflow: hidden;
 }
 .main-products__content-left .content-left--box {
-  background-image: url(../image/tv.jpg);
+  background-image: url(../image/Page1/Pg1.5/tv.jpg);
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -391,23 +393,94 @@ a {
   border-radius: 25px;
 }
 
+/* ảnh page 1 */
 .item_content--box-right .box-content {
+  position: relative;
   border-radius: 25px;
   transition: all 0.3s ease;
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-image: url(../image/s24u.jpg);
+  background-image: url(../image/Page1/Pg1.5/s24u.jpg);
 }
 
 .item_content--box-right .box-content.pt2 {
-  background-image: url(../image/s24series.jpg);
+  background-image: url(../image/Page1/Pg1.5/s24series.jpg);
 }
 .item_content--box-right .box-content.pt3 {
-  background-image: url(../image/lehoi.jpg);
+  background-image: url(../image/Page1/Pg1.5/lehoi.jpg);
 }
 .item_content--box-right .box-content.pt4 {
-  background-image: url(../image/loa.jpg);
+  background-image: url(../image/Page1/Pg1.5/loa.jpg);
+}
+
+/* ảnh page 2  */
+
+.js-content-slide .content-left--box.page2 {
+  background-image: url(../image/Page1/Pg2.5/s23fe.jpg);
+}
+.item_content--box-right .box-content.pg2_pt1 {
+  background-image: url(../image/Page1/Pg2.5/z-flip5.jpg);
+}
+
+.item_content--box-right .box-content.pg2_pt2 {
+  background-image: url(../image/Page1/Pg2.5/fit3.jpg);
+}
+
+.item_content--box-right .box-content.pg2_pt3 {
+  background-image: url(../image/Page1/Pg2.5/a33.jpg);
+}
+.item_content--box-right .box-content.pg2_pt4 {
+  background-image: url(../image/Page1/Pg2.5/a55.jpg);
+}
+
+/* ảnh page 3  */
+
+.js-content-slide .content-left--box.page3 {
+  background-image: url(../image/Page1/Pg3.5/tvss24.jpg);
+}
+.item_content--box-right .box-content.pg3_pt1 {
+  background-image: url(../image/Page1/Pg3.5/qled4k.jpg);
+}
+.item_content--box-right .box-content.pg3_pt2 {
+  background-image: url(../image/Page1/Pg3.5/qled_4k_2024.jpg);
+}
+.item_content--box-right .box-content.pg3_pt3 {
+  background-image: url(../image/Page1/Pg3.5/qled_q70c.jpg);
+}
+
+/* ảnh page 4  */
+.js-content-slide .content-left--box.page4 {
+  background-image: url(../image/Page1/Pg4.5/odyssey_g5.webp);
+}
+.item_content--box-right .box-content.pg4_pt1 {
+  background-image: url(../image/Page1/Pg4.5/Small_PC_LC34G55TWWEXXV.webp);
+}
+.item_content--box-right .box-content.pg4_pt2 {
+  background-image: url(../image/Page1/Pg4.5/Small_PC_LS32CM801UEXXV.webp);
+}
+.item_content--box-right .box-content.pg4_pt3 {
+  background-image: url(../image/Page1/Pg4.5/Small_PC_LS49CG954SEXXV.webp);
+}
+.item_content--box-right .box-content.pg4_pt4 {
+  background-image: ;
+}
+
+/* ảnh page 5 */
+.js-content-slide .content-left--box.page5 {
+  background-image: url(../image/Page1/Pg5.5/BIG-banner-PC.webp);
+}
+.item_content--box-right .box-content.pg5_pt1 {
+  background-image: url(../image/Page1/Pg5.5/MasterPC.webp);
+}
+.item_content--box-right .box-content.pg5_pt2 {
+  background-image: url(../image/Page1/Pg5.5/PC-0422.webp);
+}
+.item_content--box-right .box-content.pg5_pt3 {
+  background-image: url(../image/Page1/Pg5.5/PC_small_Vip_mall.webp);
+}
+.item_content--box-right .box-content.pg5_pt4 {
+  background-image: url(../image/Page1/Pg5.5/PC_ShopApp.webp);
 }
 
 /* content trong sản phẩm nhỏ  */
@@ -416,7 +489,6 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 15px;
   margin: 0 auto;
   text-align: center;
   align-items: center;
@@ -453,31 +525,225 @@ a {
   transform: scale(1.04, 1.04);
 }
 
-/* js cho các trang sp  */
+/* js chuyển cho các trang sp  */
 .slide_show--products {
-  width: 1485px;
-  height: 845px;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
 .js-content-slide {
+  /* để mặc định translateX(0) */
+  transform: translateX(0);
   display: flex;
   position: absolute;
-  left: 35px;
   top: 0;
-}
-.container--item-list {
-  position: absolute;
-  opacity: 0; /* Ẩn slide */
+  left: 0;
   transition: all 0.3s ease;
-  transform: translateX(-100%);
 }
 
-.container--item-list.active {
-  transform: translateX(0);
-  opacity: 1; /* Hiển thị slide */
+/* hover - active danh mục */
+.products_list .list_sp.active_sp,
+.products_list li:hover {
+  opacity: 0.6;
+}
+.products_list .list_sp.active_sp {
+  opacity: 1;
+  font-weight: 600;
+  border-bottom: 2px solid #000;
 }
 
-.content-left--box.page2 {
-  background-image: url(../image/s24series.jpg);
+/* banner sale mini trên góc  */
+.sale_mini {
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 4px 6px;
+  height: 20px;
+  background-color: rgb(5, 120, 146);
+  position: absolute;
+  border-radius: 38px;
+  top: 24px;
+  left: 24px;
+}
+
+.btn.while_theme {
+  background-color: #fff;
+  color: #000;
+}
+.box-content .element_item__right .right--title-item.while_theme {
+  color: #ffffff;
+}
+.box-content .element_item__right .right--mini-desc.while_theme {
+  color: #fff;
+}
+
+/*====================================== phần sản phẩm gợi ý ======================================== */
+/* title gợi ý sản phẩm  */
+.products_store_new .h2-content {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  padding: 60px 0;
+}
+/* phần các item sản phẩm  */
+
+/* relative thẻ sale off  */
+.box_store--item {
+  transition: all 0.3s ease;
+  width: 300px;
+  padding: 16px;
+  border-radius: 12px;
+  /* box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.05); */
+}
+
+/* nội dung thẻ sản phẩm  */
+.box_store--item {
+  margin: 20px 0;
+  background-color: #a5a5a51c;
+}
+.box_store--item .store_new__main--photo {
+  width: 100%;
+}
+/* ảnh sp  */
+.box_store--item .store_new__main--photo img {
+  width: 100%;
+  object-fit: cover;
+  padding: 20px 5px 5px;
+}
+/* giá  */
+.giasale {
+  color: #000000;
+  font-size: 1.8rem;
+  font-weight: 650;
+  line-height: 1.39; /* 138.889% */
+}
+.giagoc {
+  color: #a5a5a5;
+  margin-left: 5px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.71; /* 171.429% */
+  text-decoration-line: line-through;
+}
+.special-text {
+  color: #006bea;
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 5px 0 15px;
+}
+/* trạng thái hàng  */
+
+/* tên thiết bị  */
+.store_new__name {
+  padding: 5px 0;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+/* phần nội dung trong thẻ sản phẩm  */
+.store_new__main .store_new__main--content {
+  text-align: center;
+}
+/* phần chọn màu sắc  */
+.store_new__main--content .color_select--title {
+  font-size: 1.4rem;
+  padding: 20px 0 10px;
+}
+/* dots  */
+.store_new__main--content .color_select--dots {
+  display: flex;
+  padding: 5px 0 20px;
+  gap: 27px;
+  justify-content: center;
+}
+.store_new__main--content .color_select--dots .dots_select {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #9f9d87;
+  position: relative;
+}
+/* dots khi active  */
+.store_new__main--content .color_select--dots .dots_select.selected::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid #000;
+  z-index: -1;
+}
+/* màu các dots khác  */
+.store_new__main--content .color_select--dots .dots_select.cl1 {
+  background-color: #e6d94f61;
+}
+.store_new__main--content .color_select--dots .dots_select.cl2 {
+  background-color: #0e031bbd;
+}
+.store_new__main--content .color_select--dots .dots_select.cl3 {
+  background-color: #19181bc4;
+}
+
+/* nút riêng cho store  */
+.btn.btn-store_item {
+  margin: 0 auto;
+  width: 220px;
+}
+.store_new__main .store_new__main--content .action {
+  padding-top: 50px;
+}
+
+/* phần slide show store */
+.slide_show_store_item {
+  display: flex;
+  gap: 20px;
+  width: 1280px;
+  overflow: hidden;
+}
+.box_store--item {
+  width: 300px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.products_store_new {
+  position: relative;
+}
+.products_store_new .container {
+  padding: 0 70px;
+}
+
+#vector--right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 10px;
+  bottom: 50%;
+  border: none;
+  border-radius: 50%;
+  width: 43px;
+  height: 43px;
+  transition: all 0.3s ease;
+  background-color: #5f5c5774;
+  cursor: pointer;
+}
+#vector--left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 20px;
+  bottom: 50%;
+  background-color: #5f5c5781;
+  border: none;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
