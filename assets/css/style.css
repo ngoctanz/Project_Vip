@@ -37,6 +37,12 @@ a {
   font-weight: 500;
   line-height: 1.17;
 }
+.h4-content {
+  color: #000;
+  font-size: 1.8rem;
+  margin-top: 10px;
+  font-weight: 600;
+}
 .p-content {
   margin-top: 20px;
   width: 470px;
@@ -261,9 +267,10 @@ a {
 .background--color {
   z-index: -1;
   width: 1400px;
-  height: 800px;
+  height: 810px;
   margin: 0 auto;
   background-color: #f4f3f3c2;
+  border-radius: 5px;
 }
 /* title h2  */
 .hero .title-item {
@@ -278,11 +285,11 @@ a {
 /* danh mục sản phẩm  */
 .products_list {
   padding: 15px 0 10px;
-  top: -10px;
-  left: 30%;
+  top: 0px;
+  left: 24%;
   z-index: 1;
   position: absolute;
-  transition: all 0.3s ease;
+  
 }
 .products_list ul {
   display: flex;
@@ -290,15 +297,21 @@ a {
   justify-content: center;
   gap: 50px;
 }
-.products_list .list_sp {
+.products_list ul li {
+  padding: 12px 0 5px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.9rem;
+  position: relative;
   cursor: pointer;
-  padding: 15px 0 4px;
-  color: #000;
-  font-size: 1.8rem;
 }
+.products_list ul li.active_sp {
+  text-shadow: 0.7px 0 0 currentColor;
+}
+
 /* các trang sản phẩm  */
 .hero .container--item-list {
-  padding: 60px 0;
+  padding: 75px 0;
 }
 
 /* nội dung các sản phẩm  */
@@ -543,19 +556,10 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  transition: all 0.3s ease;
+  transition: all 0.7s ease;
 }
 
 /* hover - active danh mục */
-.products_list .list_sp.active_sp,
-.products_list li:hover {
-  opacity: 0.6;
-}
-.products_list .list_sp.active_sp {
-  opacity: 1;
-  font-weight: 600;
-  border-bottom: 2px solid #000;
-}
 
 /* banner sale mini trên góc  */
 .sale_mini {
@@ -665,6 +669,7 @@ a {
   border-radius: 50%;
   background-color: #9f9d87;
   position: relative;
+  cursor: pointer;
 }
 /* dots khi active  */
 .store_new__main--content .color_select--dots .dots_select.selected::before {
@@ -679,6 +684,7 @@ a {
   border: 2px solid #000;
   z-index: -1;
 }
+
 /* màu các dots khác  */
 .store_new__main--content .color_select--dots .dots_select.cl1 {
   background-color: #e6d94f61;
@@ -690,10 +696,67 @@ a {
   background-color: #19181bc4;
 }
 
+/* màu dots item2  */
+.store_new__main--content .color_select--dots .dots_select.item2 {
+  background-color: black;
+}
+.store_new__main--content .color_select--dots .dots_select.item2_cl1 {
+  background-color: rgba(173, 153, 0, 0.692);
+}
+/* màu dots item 3 */
+.store_new__main--content .color_select--dots .dots_select.item3 {
+  background-color: rgba(14, 158, 210, 0.852);
+}
+.store_new__main--content .color_select--dots .dots_select.item3_cl1 {
+  background-color: black;
+}
+/* màu dots item 4  */
+.store_new__main--content .color_select--dots .dots_select.item4 {
+  background-color: rgba(156, 152, 152, 0.582);
+}
+.store_new__main--content .color_select--dots .dots_select.item4_cl1 {
+  background-color: rgba(79, 187, 99, 0.457);
+}
+.store_new__main--content .color_select--dots .dots_select.item4_cl2 {
+  background-color: rgba(205, 128, 28, 0.607);
+}
+/* màu dots item 5 */
+.store_new__main--content .color_select--dots .dots_select.item5 {
+  background-color: black;
+}
+.store_new__main--content .color_select--dots .dots_select.item5_cl1 {
+  background-color: #56c0f1a0;
+}
+/* màu dots item 7 */
+.store_new__main--content .color_select--dots .dots_select.item7 {
+  background-color: #ffd9fc7b;
+}
+.store_new__main--content .color_select--dots .dots_select.item7_cl1 {
+  background-color: #56c0f1a0;
+}
+.store_new__main--content .color_select--dots .dots_select.item7_cl2 {
+  background-color: black;
+}
+.store_new__main--content .color_select--dots .dots_select.item7_cl3 {
+  background-color: rgba(223, 223, 103, 0.817);
+}
+
+/* màu dots item 8  */
+.store_new__main--content .color_select--dots .dots_select.item8 {
+  background-color: #bff7d888;
+}
+.store_new__main--content .color_select--dots .dots_select.item8_cl1 {
+  background-color: black;
+}
+.store_new__main--content .color_select--dots .dots_select.item8_cl2 {
+  background-color: #ffffff;
+}
+
 /* nút riêng cho store  */
 .btn.btn-store_item {
   margin: 0 auto;
   width: 220px;
+  transition: all 0.3s ease;
 }
 .store_new__main .store_new__main--content .action {
   padding-top: 50px;
@@ -763,3 +826,96 @@ a {
   transition: all 0.3s ease;
   cursor: pointer;
 }
+
+/*======================== big banner XIAOMI============================  */
+/* tiêu đề h2  */
+.banner_box-products {
+  position: relative;
+}
+.banner_box-products .image_banner img {
+  object-fit: cover;
+  object-position: 65%;
+}
+.banner_box-products .h2-content {
+  font-family: "Poppins", sans-serif;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0 20px;
+  margin-top: 50px;
+}
+
+.products_banner {
+  z-index: 1;
+}
+.slide_show.big_banner {
+  margin-top: 0px;
+  width: 1460px;
+  border-radius: 15px;
+}
+
+/* nhận giá trị left để thay đổi vị trí */
+.slide_show.big_banner .list-item {
+  left: 0;
+  position: absolute;
+  transition: 0.8s;
+}
+
+/* danh mục sp  */
+.products_list.banner_list {
+  position: absolute;
+  top: 14%;
+  left: 30%;
+}
+.products_list.banner_list ul {
+  display: flex;
+  gap: 45px;
+  justify-content: center;
+  padding: 10px;
+}
+.products_list.banner_list ul li {
+  font-family: "Poppins", sans-serif;
+  padding: 5px 0;
+  font-size: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+/* tạo gạch chân  */
+.products_list ul li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  border-radius: 12px;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+.products_list ul li.active_sp::after {
+  width: 100%;
+}
+
+/* phần nội dung trang  */
+#logo_special {
+  width: 280px;
+  height: auto;
+}
+.p-content.banner {
+  margin: 0;
+  padding: 6px 0 35px;
+}
+.h3-content.banner{
+  font-size: 3.8rem;
+}
+.h4-content.special {
+  margin: 0;
+}
+
+
+.banner_container {
+  position: absolute;
+  top: 32%;
+  left: 10%;
+}
+

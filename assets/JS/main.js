@@ -77,9 +77,11 @@ videoElement.addEventListener("mouseover", function () {
   videoElement.play();
 });
 
-// js cho trang sản phẩm
+// ================================================js cho trang sản phẩm====================================================
 // Lấy danh sách các mục và các slide
-var listItems = document.querySelectorAll(".products_list li");
+var listItems = document.querySelectorAll(
+  ".slide_show--products .products_list li"
+);
 var slides = document.querySelectorAll(
   ".slide_show--products .container--item-list"
 );
@@ -101,7 +103,9 @@ function changeSlideItem() {
   }
 
   // đổi hiệu ứng active của danh mục
-  let lastActivelist = document.querySelector(".products_list li.active_sp");
+  let lastActivelist = document.querySelector(
+    ".slide_show--products .products_list li.active_sp"
+  );
   if (lastActivelist) {
     lastActivelist.classList.remove("active_sp");
   }
@@ -117,19 +121,79 @@ listItems.forEach((li, key) => {
   });
 });
 
-// phần đề xuất
+// ========================================phần sản phẩm đề xuất=====================================================
 let scrollContainer = document.querySelector(".slide_show_store_item");
 let nextBtn = document.getElementById("vector--right");
 let prevBtn = document.getElementById("vector--left");
 
+// tổng chiều rộng scroll
+let scrollWidth = scrollContainer.scrollWidth;
+
+// bước nhảy sang trái một khoảng ....
+let Jump = scrollContainer.scrollLeft;
+
+function scrollLoad() {
+  scrollContainer.scrollLeft = Jump;
+  //  reset auto
+  clearInterval(autoScroll);
+  autoScroll = setInterval(() => {
+    nextBtn.click();
+  }, 4000);
+}
+
 nextBtn.addEventListener("click", () => {
-  // hiệu ứng cuộn
   scrollContainer.style.scrollBehavior = "smooth";
-  //   cuộn nội dung sang phải 320px
-  scrollContainer.scrollLeft += 320;
+  Jump += 320;
+  // so sánh với khoảng rộng mà các item đang được hiển thị
+  if (Jump >= scrollWidth - scrollContainer.clientWidth) {
+    Jump = 0; // đưa lại về vị trí ban đầu
+  }
+  scrollLoad();
 });
 
 prevBtn.addEventListener("click", () => {
   scrollContainer.style.scrollBehavior = "smooth";
-  scrollContainer.scrollLeft -= 900;
+  Jump -= 320;
+  if (Jump < 0) {
+    // trừ đi trang ban đầu, vị trí mới sẽ là từ đầu trang tiếp theo
+    Jump = scrollWidth - scrollContainer.clientWidth;
+  }
+  scrollLoad();
+});
+
+let autoScroll = setInterval(() => {
+  nextBtn.click();
+}, 4000);
+
+//========================================= phần sp banner lớn ==================================
+let slideBanner = document.querySelector(".banner_box-products .list-item");
+let bannerItems = document.querySelectorAll(
+  ".banner_box-products .list-item__item"
+);
+let productsBtn = document.querySelectorAll(
+  ".banner_box-products .products_list li"
+);
+
+let numberTG = 0;
+
+function nextBannerActive() {
+  numberTG += 1;
+  let width = bannerItems[numberTG].offsetWidth;
+  slideBanner.style.left = width * -1 * numberTG + "px";
+
+  // đổi active
+  let activeClass = document.querySelector(
+    ".banner_box-products .products_list li.active_sp"
+  );
+  if (activeClass) {
+    activeClass.classList.remove("active_sp");
+  }
+  productsBtn[numberTG].classList.add("active_sp");
+}
+
+productsBtn.forEach((li, key) => {
+  li.addEventListener("click", () => {
+    numberTG = key;
+    nextBannerActive((numberTG -= 1));
+  });
 });
