@@ -1,32 +1,3 @@
-// // khai báo biến active = 0
-// let active = 0;
-// // đếm thứ tự của item đánh số từ 0
-// let lengthItems = items.length - 1;
-
-// // sau 6s tự active nút chuyển phải
-// let refreshSlider = setInterval(() => {
-//   vector_right.click();
-// }, 8000);
-
-// // hàm chính
-// function reloadSlide() {
-//   // kiểm tra độ rộng của item
-//   let checkLeft = items[active].offsetLeft;
-//   //   dời item một khoảng bằng độ rộng để chuyển sang item sau
-//   list_items.style.left = -checkLeft + "px";
-
-//   //   lấy dots có class active
-//   let lastActiveDot = document.querySelector(".button--dot span.active--dots");
-//   //   xóa class active
-//   lastActiveDot.classList.remove("active--dots");
-//   //   thêm active vào dots hiện tại
-//   dots[active].classList.add("active--dots");
-//   //   reset quá trình đếm khi chuyển trang tự động
-//   clearInterval(refreshSlider);
-//   refreshSlider = setInterval(() => {
-//     vector_right.click();
-//   }, 8000);
-
 const list_items = document.querySelector(".slide_show .list-item");
 const items = document.querySelectorAll(".list-item__item");
 const dots = document.querySelectorAll(".button--dot span");
@@ -98,6 +69,14 @@ document.addEventListener("visibilitychange", function () {
   }
 });
 
+// video
+var videoElement = document.querySelector("video");
+
+// Thêm sự kiện 'mouseover' để bắt đầu phát video
+videoElement.addEventListener("mouseover", function () {
+  videoElement.play();
+});
+
 // js cho trang sản phẩm
 // Lấy danh sách các mục và các slide
 var listItems = document.querySelectorAll(".products_list li");
@@ -136,4 +115,21 @@ listItems.forEach((li, key) => {
     //  nên slide 2 sẽ xuất hiện
     changeSlideItem((current -= 1));
   });
+});
+
+// phần đề xuất
+let scrollContainer = document.querySelector(".slide_show_store_item");
+let nextBtn = document.getElementById("vector--right");
+let prevBtn = document.getElementById("vector--left");
+
+nextBtn.addEventListener("click", () => {
+  // hiệu ứng cuộn
+  scrollContainer.style.scrollBehavior = "smooth";
+  //   cuộn nội dung sang phải 320px
+  scrollContainer.scrollLeft += 320;
+});
+
+prevBtn.addEventListener("click", () => {
+  scrollContainer.style.scrollBehavior = "smooth";
+  scrollContainer.scrollLeft -= 900;
 });
