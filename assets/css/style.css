@@ -289,7 +289,6 @@ a {
   left: 24%;
   z-index: 1;
   position: absolute;
-  
 }
 .products_list ul {
   display: flex;
@@ -587,6 +586,10 @@ a {
 
 /*====================================== phần sản phẩm gợi ý ======================================== */
 /* title gợi ý sản phẩm  */
+/* chỉnh riêng cho mục thứ 2 */
+.products_store_new.store2 {
+  margin-top: 1965px;
+}
 .products_store_new .h2-content {
   margin: 0 auto;
   text-align: center;
@@ -830,17 +833,23 @@ a {
 /*======================== big banner XIAOMI============================  */
 /* tiêu đề h2  */
 .banner_box-products {
+  margin: 0 auto;
+  width: 1460px;
   position: relative;
 }
 .banner_box-products .image_banner img {
   object-fit: cover;
   object-position: 65%;
 }
-.banner_box-products .h2-content {
-  font-family: "Poppins", sans-serif;
-  margin: 0 auto;
+.banner_box-products .xiaomi_logo {
   text-align: center;
-  padding: 40px 0 20px;
+  display: block;
+}
+.banner_box-products .xiaomi_logo img {
+  font-family: "Poppins", sans-serif;
+  width: 220px;
+  height: auto;
+  padding: 20px 0 20px;
   margin-top: 50px;
 }
 
@@ -863,7 +872,7 @@ a {
 /* danh mục sp  */
 .products_list.banner_list {
   position: absolute;
-  top: 14%;
+  top: 15%;
   left: 30%;
 }
 .products_list.banner_list ul {
@@ -905,13 +914,12 @@ a {
   margin: 0;
   padding: 6px 0 35px;
 }
-.h3-content.banner{
+.h3-content.banner {
   font-size: 3.8rem;
 }
 .h4-content.special {
   margin: 0;
 }
-
 
 .banner_container {
   position: absolute;
@@ -919,3 +927,94 @@ a {
   left: 10%;
 }
 
+/* =======================================banner lớn có video ở giữa ================================= */
+.box_banner_center {
+  position: relative;
+}
+.h1-content.special_banner {
+  font-size: 9rem;
+  width: 80%;
+}
+.box_banner_center {
+  width: 1519px;
+  margin: 0 auto;
+}
+.box_banner_center .video_box_item .p-content{
+  font-size: 1.3rem;
+  color: rgba(129, 129, 129, 0.626);
+}
+
+/* ảnh 1  */
+.box_banner_center .box_full_photo-content {
+  position: relative;
+}
+.box_banner_center .photo_content img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: bottom;
+}
+.box_banner_center .photo_content .content_in_photo-box {
+  position: absolute;
+  top: 20%;
+  left: 23%;
+}
+.box_full_photo-content .video_text{
+  font-size: 2rem;
+  font-weight: 900;
+  color: rgba(97, 182, 122, 0.852);
+  padding-bottom: 40px  ;
+}
+
+/* video 1 */
+
+.box_banner_center .video_banner {
+  width: 100%;
+  position: absolute;
+  top: 1045px;
+}
+.box_banner_center .video_banner .video_box_item {
+  position: relative;
+}
+.box_banner_center .video_banner .video_box_item video {
+  width: 100%;
+  height: auto;
+}
+.box_banner_center .video_box_item .h2-content.vd1 {
+  position: absolute;
+  top: 19%;
+  left: 35%;
+  text-align: center;
+  width: 450px;
+}
+
+.box_banner_center .video_box_item .content_video_box {
+  position: absolute;
+  left: 27%;
+  bottom: 15px;
+  text-align: center;
+}
+.box_banner_center .video_box_item .content_video_box img {
+  position: absolute;
+  bottom: 135px;
+  right: 40%;
+}
+.box_banner_center .video_box_item .content_video_box .p-content {
+  width: 700px;
+  font-size: 1.4rem;
+}
+
+/* video 2 */
+.video_box_item.vd2 {
+  position: absolute;
+  top: -5px;
+}
+.video_box_item  .content_video_box.vd2{
+  position: absolute;
+  top: 125px;
+  left: 22%;
+  text-align: start;
+}
+.content_video_box.vd2 .h2-content{
+  width: 700px;
+}

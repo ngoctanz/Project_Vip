@@ -122,48 +122,49 @@ listItems.forEach((li, key) => {
 });
 
 // ========================================phần sản phẩm đề xuất=====================================================
-let scrollContainer = document.querySelector(".slide_show_store_item");
-let nextBtn = document.getElementById("vector--right");
-let prevBtn = document.getElementById("vector--left");
 
-// tổng chiều rộng scroll
-let scrollWidth = scrollContainer.scrollWidth;
+let scrollContainers = document.querySelectorAll(".slide_show_store_item");
+let nextBtns = document.querySelectorAll("#vector--right");
+let prevBtns = document.querySelectorAll("#vector--left");
 
-// bước nhảy sang trái một khoảng ....
-let Jump = scrollContainer.scrollLeft;
+// dùng mảng để lặp từng phần tử trong scrollContainer với chỉ số là index
+scrollContainers.forEach((scrollContainer, index) => {
+  // lấy chiều rộng tổng kể cả phần k thấy 
+  let scrollWidth = scrollContainer.scrollWidth;
+  let Jump = scrollContainer.scrollLeft;
+  let nextBtn = nextBtns[index];
+  let prevBtn = prevBtns[index];
 
-function scrollLoad() {
-  scrollContainer.scrollLeft = Jump;
-  //  reset auto
-  clearInterval(autoScroll);
-  autoScroll = setInterval(() => {
+  function scrollLoad() {
+    scrollContainer.scrollLeft = Jump;
+    clearInterval(autoScroll);
+    autoScroll = setInterval(() => {
+      nextBtn.click();
+    }, 4000);
+  }
+
+  nextBtn.addEventListener("click", () => {
+    scrollContainer.style.scrollBehavior = "smooth";
+    Jump += 320;
+    if (Jump >= scrollWidth - scrollContainer.clientWidth) {
+      Jump = 0;
+    }
+    scrollLoad();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    scrollContainer.style.scrollBehavior = "smooth";
+    Jump -= 320;
+    if (Jump < 0) {
+      Jump = scrollWidth - scrollContainer.clientWidth;
+    }
+    scrollLoad();
+  });
+
+  let autoScroll = setInterval(() => {
     nextBtn.click();
   }, 4000);
-}
-
-nextBtn.addEventListener("click", () => {
-  scrollContainer.style.scrollBehavior = "smooth";
-  Jump += 320;
-  // so sánh với khoảng rộng mà các item đang được hiển thị
-  if (Jump >= scrollWidth - scrollContainer.clientWidth) {
-    Jump = 0; // đưa lại về vị trí ban đầu
-  }
-  scrollLoad();
 });
-
-prevBtn.addEventListener("click", () => {
-  scrollContainer.style.scrollBehavior = "smooth";
-  Jump -= 320;
-  if (Jump < 0) {
-    // trừ đi trang ban đầu, vị trí mới sẽ là từ đầu trang tiếp theo
-    Jump = scrollWidth - scrollContainer.clientWidth;
-  }
-  scrollLoad();
-});
-
-let autoScroll = setInterval(() => {
-  nextBtn.click();
-}, 4000);
 
 //========================================= phần sp banner lớn ==================================
 let slideBanner = document.querySelector(".banner_box-products .list-item");
