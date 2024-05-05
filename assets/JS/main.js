@@ -1,6 +1,5 @@
 const list_items = document.querySelector(".slide_show .list-item");
 const items = document.querySelectorAll(".slide_show.home .list-item__item");
-console.log("", items);
 const dots = document.querySelectorAll(".button--dot span");
 const vector_left = document.getElementById("button__vector--left");
 const vector_right = document.getElementById("button__vector--right");
