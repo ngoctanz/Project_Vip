@@ -1,5 +1,6 @@
 const list_items = document.querySelector(".slide_show .list-item");
-const items = document.querySelectorAll(".list-item__item");
+const items = document.querySelectorAll(".slide_show.home .list-item__item");
+console.log("", items);
 const dots = document.querySelectorAll(".button--dot span");
 const vector_left = document.getElementById("button__vector--left");
 const vector_right = document.getElementById("button__vector--right");
@@ -9,7 +10,7 @@ let lengthItems = items.length - 1;
 
 // nút chuyển phải
 vector_right.onclick = function () {
-  if (active + 1 > lengthItems) {
+  if (active >= lengthItems) {
     active = 0;
   } else {
     active = active + 1;
@@ -33,20 +34,21 @@ let refreshSlider = setInterval(() => {
 }, 6000);
 
 function reloadSlide() {
-  let checkLeft = items[active].offsetLeft;
-  list_items.style.left = -checkLeft + "px";
-
-  let lastActiveDot = document.querySelector(".button--dot span.active--dots");
-  if (lastActiveDot) {
-    lastActiveDot.classList.remove("active--dots");
-  }
-  dots[active].classList.add("active--dots");
+  let checkWidth = items[active].offsetWidth;
+  list_items.style.left = -checkWidth * active + "px";
 
   // reset dếm sau khi bấm chuyển
   clearInterval(refreshSlider);
   refreshSlider = setInterval(() => {
     vector_right.click();
   }, 6000);
+
+  // đổi vị trí active
+  let lastActiveDot = document.querySelector(".button--dot span.active--dots");
+  if (lastActiveDot) {
+    lastActiveDot.classList.remove("active--dots");
+  }
+  dots[active].classList.add("active--dots");
 }
 
 dots.forEach((span, key) => {
@@ -93,8 +95,6 @@ current = 0;
 
 function changeSlideItem() {
   if (current == length - 1) {
-    current = 0;
-    let width = slides[0].offsetWidth;
     list_slides.style.transform = `translateX(0)`;
   } else {
     current++;
@@ -129,7 +129,7 @@ let prevBtns = document.querySelectorAll("#vector--left");
 
 // dùng mảng để lặp từng phần tử trong scrollContainer với chỉ số là index
 scrollContainers.forEach((scrollContainer, index) => {
-  // lấy chiều rộng tổng kể cả phần k thấy 
+  // lấy chiều rộng tổng kể cả phần k thấy
   let scrollWidth = scrollContainer.scrollWidth;
   let Jump = scrollContainer.scrollLeft;
   let nextBtn = nextBtns[index];
@@ -145,7 +145,7 @@ scrollContainers.forEach((scrollContainer, index) => {
 
   nextBtn.addEventListener("click", () => {
     scrollContainer.style.scrollBehavior = "smooth";
-    Jump += 320;
+    Jump += scrollContainer.clientWidth / 4; //1/4 của phần đang được hiển thị(trên tổng độ rộng scroll)
     if (Jump >= scrollWidth - scrollContainer.clientWidth) {
       Jump = 0;
     }
@@ -154,7 +154,7 @@ scrollContainers.forEach((scrollContainer, index) => {
 
   prevBtn.addEventListener("click", () => {
     scrollContainer.style.scrollBehavior = "smooth";
-    Jump -= 320;
+    Jump -= scrollContainer.clientWidth / 4;
     if (Jump < 0) {
       Jump = scrollWidth - scrollContainer.clientWidth;
     }

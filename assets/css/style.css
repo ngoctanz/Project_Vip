@@ -254,7 +254,6 @@ a {
   height: 3px;
   background-color: #7e7a7acf;
   margin-bottom: 15px;
-  transition: 1s;
 }
 .button--dot .dots.active--dots,
 .button--dot .dots:hover {
@@ -586,10 +585,7 @@ a {
 
 /*====================================== phần sản phẩm gợi ý ======================================== */
 /* title gợi ý sản phẩm  */
-/* chỉnh riêng cho mục thứ 2 */
-.products_store_new.store2 {
-  margin-top: 1965px;
-}
+
 .products_store_new .h2-content {
   margin: 0 auto;
   text-align: center;
@@ -772,21 +768,31 @@ a {
 }
 
 /*========================= phần slide show store===================== */
+
+/* chỉnh riêng cho mục thứ 2 */
+.products_store_new.store2 {
+  margin-top: 1270px;
+}
 .products_store_new {
   position: relative;
+  width: 1260px;
+  margin: 0 auto;
 }
 
 .slide_show_store_item {
+  position: absolute;
+  left: 0;
   display: flex;
   gap: 20px;
   width: 100%;
   overflow: hidden;
   scrollbar-width: none;
+  padding: 0 6px;
 }
 
 .slide_show_store_item .item_slide {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   width: 100%;
   flex: none;
@@ -794,18 +800,15 @@ a {
 .box_store--item {
   width: 100%;
 }
-/* padding khung ngoài đẩy nội dung nhỏ lại  */
-.products_store_new .container {
-  padding: 0 70px;
-}
 
 #vector--right {
   display: flex;
+  z-index: 1;
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 50px;
-  bottom: 42%;
+  right: -80px;
+  bottom: -330px;
   border: none;
   border-radius: 50%;
   width: 43px;
@@ -815,12 +818,13 @@ a {
   cursor: pointer;
 }
 #vector--left {
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  left: 50px;
-  bottom: 42%;
+  left: -80px;
+  bottom: -330px;
   background-color: #5f5c5781;
   border: none;
   width: 43px;
@@ -833,7 +837,7 @@ a {
 /*======================== big banner XIAOMI============================  */
 /* tiêu đề h2  */
 .banner_box-products {
-  margin: 0 auto;
+  margin: 700px auto;
   width: 1460px;
   position: relative;
 }
@@ -841,11 +845,11 @@ a {
   object-fit: cover;
   object-position: 65%;
 }
-.banner_box-products .xiaomi_logo {
+.logo_brand {
   text-align: center;
   display: block;
 }
-.banner_box-products .xiaomi_logo img {
+.logo_brand img {
   font-family: "Poppins", sans-serif;
   width: 220px;
   height: auto;
@@ -930,6 +934,7 @@ a {
 /* =======================================banner lớn có video ở giữa ================================= */
 .box_banner_center {
   position: relative;
+  top: -700px;
 }
 .h1-content.special_banner {
   font-size: 9rem;
@@ -939,7 +944,7 @@ a {
   width: 1519px;
   margin: 0 auto;
 }
-.box_banner_center .video_box_item .p-content{
+.box_banner_center .video_box_item .p-content {
   font-size: 1.3rem;
   color: rgba(129, 129, 129, 0.626);
 }
@@ -959,11 +964,11 @@ a {
   top: 20%;
   left: 23%;
 }
-.box_full_photo-content .video_text{
+.box_full_photo-content .video_text {
   font-size: 2rem;
   font-weight: 900;
   color: rgba(97, 182, 122, 0.852);
-  padding-bottom: 40px  ;
+  padding-bottom: 40px;
 }
 
 /* video 1 */
@@ -1009,12 +1014,12 @@ a {
   position: absolute;
   top: -5px;
 }
-.video_box_item  .content_video_box.vd2{
+.video_box_item .content_video_box.vd2 {
   position: absolute;
   top: 125px;
   left: 22%;
   text-align: start;
 }
-.content_video_box.vd2 .h2-content{
+.content_video_box.vd2 .h2-content {
   width: 700px;
 }
