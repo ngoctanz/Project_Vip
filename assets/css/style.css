@@ -121,23 +121,39 @@ a {
 /* dùng absolute để khi dời item sẽ dời theo thẻ cha là slide show  */
 .slide_show .list-item {
   width: 100%;
-  display: flex;
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
   transition: 1s;
 }
 .slide_show .list-item__item {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  transition: 1s;
+  width: 1519px;
+  height: 780px;
 }
+
+.list-item__item:nth-child(1) {
+  /* opacity: 0; */
+  transform: translateX(-100%);
+}
+.list-item__item:nth-child(2) {
+  transform: translateX(0);
+}
+.list-item__item:nth-child(3) {
+  transform: translateX(100%);
+}
+.list-item__item:nth-child(4) {
+  transform: translateX(200%);
+}
+
 .slide_show .list-item__item img {
   object-fit: cover;
   object-position: right center;
   width: 1530px;
   height: 730px;
 }
-.slide_show .list-item__item.item3 img {
+.slide_show .list-item__item.item4 img {
   object-position: center;
 }
 .slide_show .list-item__item video {
@@ -162,7 +178,7 @@ a {
   top: 34%;
   left: 7%;
 }
-.list-item__item--content.n3 {
+.list-item__item--content.n4 {
   position: absolute;
   top: 12%;
   left: 26%;
@@ -171,7 +187,7 @@ a {
   align-items: center;
   flex-direction: column;
 }
-.list-item__item--content.n4 {
+.list-item__item--content.n1 {
   position: absolute;
 }
 /* tìm hiểu thêm  */

@@ -1,73 +1,69 @@
 const list_items = document.querySelector(".slide_show .list-item");
-const items = document.querySelectorAll(".slide_show.home .list-item__item");
-const dots = document.querySelectorAll(".button--dot span");
+const items = document.querySelectorAll(".slide_show .list-item__item");
 const vector_left = document.getElementById("button__vector--left");
 const vector_right = document.getElementById("button__vector--right");
+const dots = document.querySelectorAll(".button--dot span");
 
 let active = 0;
-let lengthItems = items.length - 1;
 
-// nút chuyển phải
-vector_right.onclick = function () {
-  if (active >= lengthItems) {
-    active = 0;
-  } else {
-    active = active + 1;
-  }
-  reloadSlide();
-};
-
-// nút chuyển trái
-vector_left.onclick = function () {
-  if (active - 1 < 0) {
-    active = lengthItems;
-  } else {
-    active = active - 1;
-  }
-  reloadSlide();
-};
-
-// chuyển phải sau 6s
-let refreshSlider = setInterval(() => {
-  vector_right.click();
+let autoNext = setInterval(() => {
+  autoSlide();
 }, 6000);
 
-function reloadSlide() {
-  let checkWidth = items[active].offsetWidth;
-  list_items.style.left = -checkWidth * active + "px";
+// hàm chính
+function autoSlide() {
+  active++;
+  const firstItem = document.querySelector(
+    ".slide_show .list-item__item:first-child"
+  );
+  list_items.appendChild(firstItem);
 
-  // reset dếm sau khi bấm chuyển
-  clearInterval(refreshSlider);
-  refreshSlider = setInterval(() => {
-    vector_right.click();
+  // cập nhật dots active
+  updateActiveDot();
+
+  // reset auto chuyển
+  clearInterval(autoNext);
+  autoNext = setInterval(() => {
+    autoSlide();
   }, 6000);
-
-  // đổi vị trí active
-  let lastActiveDot = document.querySelector(".button--dot span.active--dots");
-  if (lastActiveDot) {
-    lastActiveDot.classList.remove("active--dots");
-  }
-  dots[active].classList.add("active--dots");
 }
 
-dots.forEach((span, key) => {
-  span.addEventListener("click", function () {
-    active = key;
-    reloadSlide();
+// hàm cập nhật dots active
+// duyệt qua từng dot với mỗi phần tử mang tên dot và có chỉ số là index(0,1,2..)
+function updateActiveDot() {
+  dots.forEach((dot, index) => {
+    // sau nhấn lần đầu active=1%4=1 --> active vt 2
+    if (index === active % dots.length) {
+      dot.classList.add("active--dots");
+    } else {
+      dot.classList.remove("active--dots");
+    }
   });
+}
+
+// nút phải
+vector_right.addEventListener("click", () => {
+  autoSlide();
 });
 
-document.addEventListener("visibilitychange", function () {
-  if (document.hidden) {
-    // Nếu tab không hoạt động, dừng việc tự động chuyển slide
-    clearInterval(refreshSlider);
-  } else {
-    // Nếu tab hoạt động, bắt đầu lại việc tự động chuyển slide
-    clearInterval(refreshSlider);
-    refreshSlider = setInterval(() => {
-      vector_right.click();
-    }, 6000);
+// nút trái
+vector_left.addEventListener("click", () => {
+  const lastItem = document.querySelector(
+    ".slide_show .list-item__item:last-child"
+  );
+  document.querySelector(".list-item").prepend(lastItem);
+
+  // cập nhật lại dots active
+  active--;
+  if (active < 0) {
+    active = dots.length - 1;
   }
+  updateActiveDot();
+  // reset auto chuyển
+  clearInterval(autoNext);
+  autoNext = setInterval(() => {
+    autoSlide();
+  }, 6000);
 });
 
 // video
