@@ -65,6 +65,23 @@ a {
 .btn:hover {
   opacity: 0.8;
 }
+/* while theme set  */
+.while_theme {
+  color: #fff !important;
+}
+.btn.while_theme {
+  background-color: #ffffffe7;
+  color: #000 !important;
+}
+.action.flex .more__btn.while_theme::before {
+  content: "";
+  border-radius: 12px;
+  position: absolute;
+  background-color: #ffffffe7;
+  height: 3px;
+  width: 107px;
+  bottom: -6px;
+}
 /* =============================header================================= */
 .header {
   width: 100%;
@@ -133,18 +150,19 @@ a {
   height: 780px;
 }
 
-.list-item__item:nth-child(1) {
-  /* opacity: 0; */
+.slide_show.home .list-item__item:nth-child(1) {
+  opacity: 0;
   transform: translateX(-100%);
 }
-.list-item__item:nth-child(2) {
+.slide_show.home .list-item__item:nth-child(2) {
   transform: translateX(0);
 }
-.list-item__item:nth-child(3) {
+.slide_show.home .list-item__item:nth-child(3) {
   transform: translateX(100%);
 }
-.list-item__item:nth-child(4) {
+.slide_show.home .list-item__item:nth-child(4) {
   transform: translateX(200%);
+  opacity: 0;
 }
 
 .slide_show .list-item__item img {
@@ -588,18 +606,20 @@ a {
   left: 24px;
 }
 
-.btn.while_theme {
-  background-color: #fff;
-  color: #000;
+/*====================================== phần sản phẩm gợi ý ======================================== */
+
+/* chỉnh riêng cho mục thứ 2 */
+.products_store_new.store2 {
+  z-index: 1;
+  margin-top: 320px;
 }
-.box-content .element_item__right .right--title-item.while_theme {
+.products_store_new.store2 .h2-content {
   color: #ffffff;
 }
-.box-content .element_item__right .right--mini-desc.while_theme {
-  color: #fff;
+.products_store_new.store2 .box_store--item {
+  background-color: #b8b6b6;
 }
 
-/*====================================== phần sản phẩm gợi ý ======================================== */
 /* title gợi ý sản phẩm  */
 
 .products_store_new .h2-content {
@@ -785,10 +805,6 @@ a {
 
 /*========================= phần slide show store===================== */
 
-/* chỉnh riêng cho mục thứ 2 */
-.products_store_new.store2 {
-  margin-top: 1270px;
-}
 .products_store_new {
   position: relative;
   width: 1260px;
@@ -884,9 +900,16 @@ a {
 
 /* nhận giá trị left để thay đổi vị trí */
 .slide_show.big_banner .list-item {
+  width: 100%;
+  display: flex;
+  top: 0;
   left: 0;
   position: absolute;
   transition: 0.8s;
+}
+.slide_show.big_banner .list-item__item {
+  position: relative;
+  width: 100%;
 }
 
 /* danh mục sp  */
@@ -945,6 +968,71 @@ a {
   position: absolute;
   top: 32%;
   left: 10%;
+}
+/*================================== phần video điện thoại tối ======================================== */
+
+.video_mobile_phone {
+  width: 1519px;
+  height: 730px;
+  position: relative;
+  z-index: 1;
+  top: 1245px;
+  margin: 0 auto;
+  padding-bottom: 2000px;
+  background-color: #000000;
+}
+.video_mobile_phone video {
+  height: 1000px;
+  width: 1519px;
+}
+.list-item__item--content.mobile_phone {
+  position: absolute;
+  bottom: 0;
+  /* opacity: 0; */
+  transition-duration: 0.5s;
+}
+/* .list-item__item--content.mobile_phone.show {
+  animation: delay_content 1s ease 2.2s 1 forwards;
+} */
+
+#phone_logo {
+  width: 400px;
+  height: auto;
+  position: absolute;
+  top: 4%;
+  left: 37%;
+  /* đảo màu ảnh  */
+  filter: invert(1) saturate(0) grayscale(100%);
+}
+/* #phone_logo.show {
+  animation: delay_logo 0.8s ease 0.6s 1 forwards;
+} */
+.video_mobile_phone .h3-content {
+  font-weight: 850;
+  color: rgba(97, 182, 122, 0.852);
+  padding: 15px 0;
+}
+@keyframes delay_logo {
+  from {
+    transform: translate(0, -100px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes delay_content {
+  from {
+    opacity: 0;
+    transform: translate(0, 100px);
+    filter: blur(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+    filter: blur(0);
+  }
 }
 
 /* =======================================banner lớn có video ở giữa ================================= */

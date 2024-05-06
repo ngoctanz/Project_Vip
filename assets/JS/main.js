@@ -162,7 +162,7 @@ scrollContainers.forEach((scrollContainer, index) => {
 });
 
 //========================================= phần sp banner lớn ==================================
-let slideBanner = document.querySelector(".banner_box-products .list-item");
+let slideBanner = document.querySelector(".banner_box-products  .list-item");
 let bannerItems = document.querySelectorAll(
   ".banner_box-products .list-item__item"
 );
@@ -193,3 +193,25 @@ productsBtn.forEach((li, key) => {
     nextBannerActive((numberTG -= 1));
   });
 });
+
+// // Lấy phần tử bạn muốn thêm animation
+// const element = document.querySelector(
+//   ".list-item__item--content.mobile_phone"
+// );
+
+// // Tạo một Intersection Observer
+// const observer = new IntersectionObserver((entries, observer) => {
+//   entries.forEach((entry) => {
+//     // Kiểm tra nếu phần tử đang trong viewport
+//     if (entry.isIntersecting) {
+//       // Thêm class để kích hoạt animation
+//       entry.target.classList.add("show");
+//     } else {
+//       // Xóa class để dừng animation
+//       entry.target.classList.remove("show");
+//     }
+//   });
+// });
+
+// // Bắt đầu quan sát phần tử
+// observer.observe(element);
