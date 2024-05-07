@@ -189,6 +189,8 @@ a {
   position: absolute;
   top: 34%;
   left: 7%;
+  animation: delay_content 1s ease 3.2s 1 forwards;
+  opacity: 0;
 }
 
 .list-item__item--content.n2 {
@@ -973,7 +975,7 @@ a {
 
 .video_mobile_phone {
   width: 1519px;
-  height: 730px;
+  height: 700px;
   position: relative;
   z-index: 1;
   top: 1245px;
@@ -986,16 +988,19 @@ a {
   width: 1519px;
 }
 .list-item__item--content.mobile_phone {
+  padding-top: 200px;
   position: absolute;
-  bottom: 0;
-  /* opacity: 0; */
-  transition-duration: 0.5s;
+  top: 430px;
+  opacity: 0;
+  transition-duration: 0.6s;
 }
-/* .list-item__item--content.mobile_phone.show {
-  animation: delay_content 1s ease 2.2s 1 forwards;
-} */
+.list-item__item--content.mobile_phone.show {
+  animation: delay_content 1s ease 1.5s 1 forwards;
+}
 
-#phone_logo {
+.phone_logo {
+  transition-duration: 0.6s;
+  opacity: 0;
   width: 400px;
   height: auto;
   position: absolute;
@@ -1004,9 +1009,10 @@ a {
   /* đảo màu ảnh  */
   filter: invert(1) saturate(0) grayscale(100%);
 }
-/* #phone_logo.show {
+.phone_logo.show {
   animation: delay_logo 0.8s ease 0.6s 1 forwards;
-} */
+}
+
 .video_mobile_phone .h3-content {
   font-weight: 850;
   color: rgba(97, 182, 122, 0.852);

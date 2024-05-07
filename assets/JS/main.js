@@ -194,24 +194,22 @@ productsBtn.forEach((li, key) => {
   });
 });
 
-// // Lấy phần tử bạn muốn thêm animation
-// const element = document.querySelector(
-//   ".list-item__item--content.mobile_phone"
-// );
+// Lấy phần tử bạn muốn thêm animation
+const logoElement = document.querySelector(".phone_logo");
+const element = document.querySelector(
+  ".list-item__item--content.mobile_phone"
+);
 
-// // Tạo một Intersection Observer
-// const observer = new IntersectionObserver((entries, observer) => {
-//   entries.forEach((entry) => {
-//     // Kiểm tra nếu phần tử đang trong viewport
-//     if (entry.isIntersecting) {
-//       // Thêm class để kích hoạt animation
-//       entry.target.classList.add("show");
-//     } else {
-//       // Xóa class để dừng animation
-//       entry.target.classList.remove("show");
-//     }
-//   });
-// });
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    // Kiểm tra nếu phần tử đang trong viewport
+    if (entry.isIntersecting) {
+      // Thêm class để kích hoạt animation
+      entry.target.classList.add("show");
+    }
+  });
+});
 
-// // Bắt đầu quan sát phần tử
-// observer.observe(element);
+// Bắt đầu quan sát phần tử
+observer.observe(element);
+observer.observe(logoElement);
