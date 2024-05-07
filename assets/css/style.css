@@ -618,8 +618,12 @@ a {
 .products_store_new.store2 .h2-content {
   color: #ffffff;
 }
+.slide_show_store_item.store2 {
+  background-color: #ffffff22;
+  box-shadow: 0px 13px 40px #bdbdbdbd;
+}
 .products_store_new.store2 .box_store--item {
-  background-color: #b8b6b6;
+  background-color: hsla(0, 0%, 95%, 0.568);
 }
 
 /* title gợi ý sản phẩm  */
@@ -821,7 +825,9 @@ a {
   width: 100%;
   overflow: hidden;
   scrollbar-width: none;
-  padding: 0 6px;
+  padding: 0 18px;
+  box-shadow: 0 30px 50px #bdbdbd;
+  border-radius: 12px;
 }
 
 .slide_show_store_item .item_slide {

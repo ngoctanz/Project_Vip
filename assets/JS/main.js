@@ -121,6 +121,9 @@ listItems.forEach((li, key) => {
 let scrollContainers = document.querySelectorAll(".slide_show_store_item");
 let nextBtns = document.querySelectorAll("#vector--right");
 let prevBtns = document.querySelectorAll("#vector--left");
+let itemStore = document.querySelectorAll(
+  ".slide_show_store_item .box_store--item"
+);
 
 // dùng mảng để lặp từng phần tử trong scrollContainer với chỉ số là index
 scrollContainers.forEach((scrollContainer, index) => {
@@ -140,7 +143,9 @@ scrollContainers.forEach((scrollContainer, index) => {
 
   nextBtn.addEventListener("click", () => {
     scrollContainer.style.scrollBehavior = "smooth";
-    Jump += scrollContainer.clientWidth / 4; //1/4 của phần đang được hiển thị(trên tổng độ rộng scroll)
+    // Jump += scrollContainer.clientWidth / 4; //1/4 của phần đang được hiển thị(trên tổng độ rộng scroll)
+    let checkLeft = itemStore[0].offsetWidth;
+    Jump += checkLeft + 20;
     if (Jump >= scrollWidth - scrollContainer.clientWidth) {
       Jump = 0;
     }
