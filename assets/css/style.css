@@ -185,7 +185,7 @@ a {
   margin-top: 36px;
 }
 /* content của mỗi item  */
-.list-item__item--content {
+.list-item__item--content.vd1 {
   position: absolute;
   top: 34%;
   left: 7%;
@@ -993,9 +993,10 @@ a {
   top: 430px;
   opacity: 0;
   transition-duration: 0.6s;
+  left: 7%;
 }
 .list-item__item--content.mobile_phone.show {
-  animation: delay_content 1s ease 1.5s 1 forwards;
+  animation: delay_content 1s ease 1s 1 forwards;
 }
 
 .phone_logo {
