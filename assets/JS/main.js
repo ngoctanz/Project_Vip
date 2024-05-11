@@ -207,7 +207,7 @@ const element = document.querySelector(
 const contentApple = document.querySelector(
   ".banner_apple .content_in_banner--apple"
 );
-const imageApple = document.querySelector(".banner_apple .image_apple_banner")
+const imageApple = document.querySelector(".banner_apple .image_apple_banner");
 
 // hàm chính
 const observer = new IntersectionObserver((entries, observer) => {
@@ -243,11 +243,15 @@ function autoSlideNext() {
 
 function updateBG() {
   bgColor.forEach((bg, index) => {
-    // sau nhấn lần đầu active=1%4=1 --> active vt 2
-    if (index === smIP % bgColor.length) {
-      bg.classList.add("active");
+    if (smIP < 0) {
+      smIP = bgColor.length - 1;
     } else {
-      bg.classList.remove("active");
+      // sau nhấn lần đầu active=1%4=1 --> active vt 2
+      if (index === smIP % bgColor.length) {
+        bg.classList.add("active");
+      } else {
+        bg.classList.remove("active");
+      }
     }
   });
 }
