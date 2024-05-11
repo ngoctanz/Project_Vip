@@ -199,12 +199,17 @@ productsBtn.forEach((li, key) => {
   });
 });
 
-// Lấy phần tử bạn muốn thêm animation
+// phần delay animation cho cả trang==========================
 const logoElement = document.querySelector(".phone_logo");
 const element = document.querySelector(
   ".list-item__item--content.mobile_phone"
 );
+const contentApple = document.querySelector(
+  ".banner_apple .content_in_banner--apple"
+);
+const imageApple = document.querySelector(".banner_apple .image_apple_banner")
 
+// hàm chính
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
     // Kiểm tra nếu phần tử đang trong viewport
@@ -216,5 +221,69 @@ const observer = new IntersectionObserver((entries, observer) => {
 });
 
 // Bắt đầu quan sát phần tử
+
+observer.observe(contentApple);
+observer.observe(imageApple);
 observer.observe(element);
 observer.observe(logoElement);
+
+// -------------------phần sản phẩm iphone-------------------
+
+const bgColor = document.querySelectorAll(".background_color .background_item");
+let smIP = 0;
+
+function autoSlideNext() {
+  smIP++;
+  const firstItem = document.querySelector(
+    ".list_ip .list_ip__item:first-child"
+  );
+  document.querySelector(".list_ip").appendChild(firstItem);
+  updateBG();
+}
+
+function updateBG() {
+  bgColor.forEach((bg, index) => {
+    // sau nhấn lần đầu active=1%4=1 --> active vt 2
+    if (index === smIP % bgColor.length) {
+      bg.classList.add("active");
+    } else {
+      bg.classList.remove("active");
+    }
+  });
+}
+
+function autoSlideBack() {
+  smIP--;
+  const lastItem = document.querySelector(".list_ip .list_ip__item:last-child");
+  document.querySelector(".list_ip").prepend(lastItem);
+  updateBG();
+}
+
+// phần màu sắc
+const colorList = document.querySelectorAll(
+  ".slide_last_ip .list_color_select .item_color"
+);
+const boxColor = document.querySelector(".slide_last_ip .list_color_select");
+
+var tgColor = 0;
+
+function colorActiveNext() {}
+
+// phần nút bấm chuyển
+const leftVector = document.getElementById("left-btn");
+const rightVector = document.getElementById("right-btn");
+
+rightVector.addEventListener("click", () => {
+  const firstColor = document.querySelector(
+    ".slide_last_ip .list_color_select .item_color:first-child"
+  );
+  document.querySelector(".list_color_select").appendChild(firstColor);
+  autoSlideNext();
+});
+leftVector.addEventListener("click", () => {
+  const lastColor = document.querySelector(
+    ".slide_last_ip .list_color_select .item_color:last-child"
+  );
+  document.querySelector(".list_color_select").prepend(lastColor);
+  autoSlideBack();
+});

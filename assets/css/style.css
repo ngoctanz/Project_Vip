@@ -636,19 +636,17 @@ a {
 }
 /* ==============phần các item sản phẩm===========  */
 .box_store--item {
+  margin: 20px 0;
   transition: all 0.3s ease;
   width: 300px;
   padding: 16px;
   border-radius: 12px;
-  border: 1px solid #e2dfda4d;
-  /* box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.05); */
+  /* border: 1px solid #e2dfda4d; */
+  /* background-color: #a5a5a51c; */
 }
 
 /* nội dung thẻ sản phẩm  */
-.box_store--item {
-  margin: 20px 0;
-  background-color: #a5a5a51c;
-}
+
 .box_store--item .store_new__main--photo {
   width: 100%;
 }
@@ -1002,7 +1000,7 @@ a {
   left: 7%;
 }
 .list-item__item--content.mobile_phone.show {
-  animation: delay_content 1s ease 1s 1 forwards;
+  animation: delay_content 1s ease 1s forwards;
 }
 
 .phone_logo {
@@ -1017,7 +1015,7 @@ a {
   filter: invert(1) saturate(0) grayscale(100%);
 }
 .phone_logo.show {
-  animation: delay_logo 0.8s ease 0.6s 1 forwards;
+  animation: delay_logo 0.8s ease 0.6s forwards;
 }
 
 .video_mobile_phone .h3-content {
@@ -1027,7 +1025,7 @@ a {
 }
 @keyframes delay_logo {
   from {
-    transform: translate(0, -100px);
+    transform: translate(0, -100%);
     opacity: 0;
   }
   to {
@@ -1139,4 +1137,335 @@ a {
 }
 .content_video_box.vd2 .h2-content {
   width: 700px;
+}
+
+/* ======================================phần sản phẩm của apple=================================  */
+.brand_set {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  z-index: 1;
+  position: absolute;
+  top: -175px;
+  left: 40%;
+}
+.brand_set .name_brand {
+  transform: translateY(-20px);
+  color: #000000;
+  font-size: 6rem;
+  font-weight: 800;
+  text-shadow: 0 2px 1px #747474, -1px 3px 1px #767676, -2px 5px 1px #787878;
+}
+.logo_brand.apple {
+  width: 70px;
+}
+.logo_brand.apple img {
+  width: 100%;
+}
+/* phần banner giới thiệu=========  */
+.banner_apple {
+  position: relative;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(53, 61, 62, 1) 0%,
+    rgba(6, 31, 49, 1) 50%,
+    rgba(3, 1, 9, 1) 100%
+  );
+
+  height: 900px;
+  width: 1519px;
+  margin: 960px auto 0;
+}
+.banner_apple .content_in_banner--apple {
+  opacity: 0;
+  width: 65%;
+  height: 100%;
+  padding: 280px 200px;
+}
+
+.banner_apple .content_in_banner--apple.show {
+  animation: delay_content 0.8s ease 0.6s forwards;
+}
+
+.banner_apple .content_in_banner--apple .logo_in_top {
+  padding: 25px 0;
+  gap: 8px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+.banner_apple .content_in_banner--apple .logo_in_top img {
+  width: 60px;
+  height: auto;
+}
+.banner_apple .content_in_banner--apple .logo_in_top .name_logo {
+  transform: translateY(-2px);
+  text-align: end;
+  color: #ffffff;
+  font-size: 3.8rem;
+  font-weight: 600;
+}
+.banner_apple .content_in_banner--apple .h1-content {
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 7rem;
+}
+.banner_apple .content_in_banner--apple .p-content {
+  font-size: 2.2rem;
+  color: #dfdfdf84;
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+.btn.btn_apple-banner {
+  background-color: transparent;
+  border: 1px solid #fff;
+  margin: 0 auto;
+}
+.btn.btn_apple-banner:hover {
+  background-color: #9b9a96c3;
+  transform: scale(1.05);
+}
+.banner_apple .image_apple_banner {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  opacity: 0;
+}
+.banner_apple .image_apple_banner.show {
+  animation: delay_logo 0.8s ease 0.6s forwards;
+}
+
+.banner_apple .image_apple_banner img {
+  height: 820px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* phần .background color============================== */
+.background_color {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.background_color .background_item {
+  transition: 1s;
+  opacity: 0;
+  position: absolute;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(46, 46, 46, 1) 0%,
+    rgb(42, 41, 53) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  width: 100%;
+  height: 100%;
+}
+.background_color .background_item.bg2 {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(97, 150, 117, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+.background_color .background_item.bg3 {
+  background: radial-gradient(
+    circle at 50% 38%,
+    rgba(46, 46, 46, 1) 0%,
+    rgba(123, 94, 112, 1) 0%,
+    rgba(120, 91, 107, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+.background_color .background_item.bg4 {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(89, 123, 122, 1) 0%,
+    rgba(8, 13, 13, 1) 100%
+  );
+}
+.background_color .background_item.bg5 {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(85, 86, 57, 1) 0%,
+    rgba(10, 10, 5, 1) 100%
+  );
+}
+.background_color .background_item.active {
+  opacity: 1;
+}
+
+/* phần sản phẩm  */
+.slide_last_ip {
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 1519px;
+  height: 730px;
+}
+.list_ip .list_ip__item {
+  transition: 1s;
+  position: absolute;
+  top: 130px;
+  right: 0;
+  width: 190px;
+  height: auto;
+  opacity: 0.6;
+  filter: blur(8px);
+}
+.list_ip .list_ip__item img {
+  width: 100%;
+  height: auto;
+}
+.list_ip .list_ip__item:nth-child(1) {
+  transform: translate(100%, 70%);
+}
+.list_ip .list_ip__item:nth-child(2) {
+  transform: translate(-30%, 190%);
+}
+.list_ip .list_ip__item:nth-child(3) {
+  filter: blur(0);
+  opacity: 1;
+  width: 550px;
+  transform: translate(-45%, -12%);
+}
+.list_ip .list_ip__item:nth-child(4) {
+  transform: translate(-30%, -50%);
+}
+.list_ip .list_ip__item:nth-child(5) {
+  transform: translate(100%, 70%);
+}
+
+/* phần content  */
+/* logo  */
+
+.slide_last_ip .content_ip_banner {
+  position: absolute;
+  top: 22%;
+  left: 12%;
+  z-index: 1;
+}
+.content_ip_banner .big_logo_apple {
+  padding: 5px 0 50px 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+.big_logo_apple img {
+  opacity: 0.88;
+  width: 60px;
+  height: auto;
+}
+.content_ip_banner .big_logo_apple span {
+  color: #fff;
+  transform: translateY(3px);
+  font-size: 5.7rem;
+  text-shadow: 0 2px 1px #747474, -1px 3px 1px #767676, -2px 5px 1px #787878;
+}
+.content_ip_banner .h1-content {
+  color: #dfdfdf;
+}
+.content_ip_banner .color-content {
+  margin-left: 11.5%;
+  margin-top: 30px;
+  padding: 5px 0;
+  font-size: 2.3rem;
+  font-weight: 650;
+  color: #b2b1b1e3;
+}
+.content_ip_banner .p-content {
+  color: #dfdfdfb2;
+  margin-top: 15px;
+  padding: 0 0 20px;
+}
+.box-full__content_vector {
+  position: relative;
+  width: 350px;
+  /* margin-left: 60px; */
+}
+
+.slide_last_ip .list_color_select {
+  margin: 0 auto;
+  margin-left: 80px;
+  overflow: hidden;
+  position: relative;
+  width: 250px;
+  height: 50px;
+}
+.slide_last_ip .list_color_select {
+  display: flex;
+}
+.slide_last_ip .list_color_select .item_color {
+  gap: 10px;
+  transition: 1s;
+  position: absolute;
+  width: 250px;
+  align-items: end;
+  display: flex;
+  padding: 10px 0;
+  border-radius: 1px;
+  cursor: pointer;
+}
+.slide_last_ip .list_color_select .item_color:nth-child(1) {
+  transform: translateX(-100%);
+}
+.slide_last_ip .list_color_select .item_color:nth-child(3) {
+  transform: translateX(100%);
+}
+.slide_last_ip .list_color_select .item_color:nth-child(n + 4) {
+  transform: translateX(200%);
+}
+.list_color_select .color_name {
+  width: 200px;
+  font-weight: 700;
+  text-shadow: rgb(183, 183, 183) 0.1em 0.1em 0.2em;
+  font-size: 2.8rem;
+  color: white;
+}
+.slide_last_ip .list_color_select .item_color .dots {
+  border: 2px solid #dfdfdf;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #000;
+}
+/* màu từng dots  */
+.slide_last_ip .list_color_select .dots.cl1 {
+  background-color: rgb(248, 248, 172);
+}
+.slide_last_ip .list_color_select .dots.cl3 {
+  background-color: rgba(199, 248, 199, 0.829);
+}
+.slide_last_ip .list_color_select .dots.cl4 {
+  background-color: rgba(244, 206, 213, 0.84);
+}
+.slide_last_ip .list_color_select .dots.cl5 {
+  background-color: rgb(183, 223, 248);
+}
+
+/* nút chuyển màu */
+.box_flex_color .vector_btn_box {
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+#left-btn img {
+  cursor: pointer;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 8px;
+  top: 12px;
+}
+#right-btn img {
+  cursor: pointer;
+  position: absolute;
+  width: 33px;
+  height: 33px;
+  left: 350px;
+  top: 12px;
 }
