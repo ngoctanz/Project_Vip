@@ -208,6 +208,11 @@ const contentApple = document.querySelector(
   ".banner_apple .content_in_banner--apple"
 );
 const imageApple = document.querySelector(".banner_apple .image_apple_banner");
+const ipWidget = document.querySelector(
+  ".content_left-gallery .content_left-gallery--top .p-content"
+);
+const ipContent = document.querySelector(".content_left-gallery");
+const ipImage = document.querySelector(".box-full--gallery");
 
 // hàm chính
 const observer = new IntersectionObserver((entries, observer) => {
@@ -222,6 +227,9 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 // Bắt đầu quan sát phần tử
 
+observer.observe(ipImage);
+observer.observe(ipContent);
+observer.observe(ipWidget);
 observer.observe(contentApple);
 observer.observe(imageApple);
 observer.observe(element);
@@ -291,3 +299,50 @@ leftVector.addEventListener("click", () => {
   document.querySelector(".list_color_select").prepend(lastColor);
   autoSlideBack();
 });
+
+// phần giới thiệu tính năng ip15
+
+const listItemIPmini = document.querySelectorAll(
+  ".content_left-gallery--bottom li .box_li"
+);
+const imagesIP = document.querySelectorAll(".img_content img");
+
+listItemIPmini.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    listItemIPmini.forEach((item) => {
+      item.classList.remove("active_ip");
+      // Xóa lớp active khỏi tất cả các ảnh
+      imagesIP.forEach((image) => {
+        image.classList.remove("active_ip");
+      });
+    });
+
+    // Thêm lớp active cho ảnh tương ứng với phần tử li được nhấp vào
+    imagesIP[index].classList.add("active_ip");
+    listItemIPmini[index].classList.add("active_ip");
+  });
+});
+
+// cuộn lên che đi phần tử dùng cho nhiều phần tử từ sau banner giới thiệu =============================
+const btnScroll = document.querySelector(
+  ".banner_apple .content_in_banner--apple .btn.btn_apple-banner"
+);
+const noneItem = document.querySelector(".banner_apple .image_apple_banner");
+const contentOut = document.querySelector(
+  ".banner_apple .content_in_banner--apple"
+);
+const itembottomUp = document.querySelector(".slide_last_ip ");
+
+btnScroll.addEventListener("click", () => {
+  const itemHide = document.querySelector(".action_gallery");
+  itemHide.classList.add("scroll_up");
+  itembottomUp.classList.add("scroll_up");
+  // phần out của trang hiện tại
+  noneItem.classList.remove("show");
+  noneItem.classList.add("hide");
+
+  contentOut.classList.remove("show");
+  contentOut.classList.add("hide");
+});
+
+// =======================================================================

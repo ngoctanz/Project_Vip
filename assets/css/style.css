@@ -1162,6 +1162,23 @@ a {
 .logo_brand.apple img {
   width: 100%;
 }
+
+@keyframes hidePage {
+  from{
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+}
+@keyframes hide_content_down{
+  to{
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+
 /* phần banner giới thiệu=========  */
 .banner_apple {
   position: relative;
@@ -1176,13 +1193,16 @@ a {
   width: 1519px;
   margin: 960px auto 0;
 }
+
 .banner_apple .content_in_banner--apple {
   opacity: 0;
   width: 65%;
   height: 100%;
   padding: 280px 200px;
 }
-
+.banner_apple .content_in_banner--apple.hide{
+  animation: hide_content_down 1.8s ease-in;
+}
 .banner_apple .content_in_banner--apple.show {
   animation: delay_content 0.8s ease 0.6s forwards;
 }
@@ -1234,6 +1254,9 @@ a {
   right: 50px;
   opacity: 0;
 }
+.banner_apple .image_apple_banner.hide{
+  animation: hidePage 1.8s ease-in;
+}
 .banner_apple .image_apple_banner.show {
   animation: delay_logo 0.8s ease 0.6s forwards;
 }
@@ -1244,14 +1267,203 @@ a {
   object-position: center;
 }
 
-/* phần .background color============================== */
+/* phần giới thiệu tính năng ===================================== */
+/* phần content trái -------------------- */
+
+@keyframes scrollSlowly {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-900px);
+  }
+}
+
+.action_gallery {
+  margin: 0 auto;
+  position: relative;
+  width: 1519px;
+  /* z-index: -1; */
+  background-color: #000000;
+}
+.action_gallery.scroll_up {
+  animation: scrollSlowly 2s ease-in-out forwards;
+}
+.box-action_gallery {
+  padding: 350px 20px;
+  display: flex;
+}
+.content_left-gallery {
+  transition: 1s;
+  position: relative;
+  /* z-index: 1; */
+  width: 50%;
+}
+.content_left-gallery.show {
+  transition: 1s ease-in;
+  transition: 0.6s ease-in;
+  transform: translateY(-44%);
+}
+
+.content_left-gallery .content_left-gallery--top {
+  padding: 20px;
+  margin-left: 40%;
+  width: 400px;
+}
+.content_left-gallery .content_left-gallery--top .h1-content {
+  font-size: 8rem;
+  font-weight: 600;
+  color: #dfdfdf;
+  width: 500px;
+}
+.content_left-gallery .content_left-gallery--top .p-content {
+  position: relative;
+  font-size: 1.9rem;
+  width: 350px;
+  margin-top: 70px;
+  color: #dfdfdfa1;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+.content_left-gallery .content_left-gallery--top .p-content::after {
+  content: "";
+  z-index: 3;
+  position: absolute;
+  bottom: -60px;
+  left: -5px;
+  width: 0;
+  height: 1px;
+  background-color: #ffffff61;
+}
+.content_left-gallery .content_left-gallery--top .p-content.show::after {
+  transition: width 1.5s ease;
+  width: 550px;
+}
+.content_left-gallery .content_left-gallery--top .special_text {
+  color: #fff;
+}
+.content_left-gallery--bottom ul li {
+  cursor: pointer;
+  color: #dfdfdf;
+  font-weight: 500;
+  padding: 2px 0;
+
+  font-size: 1.6rem;
+}
+.content_left-gallery--bottom {
+  position: absolute;
+  z-index: 1;
+  padding: 0;
+  margin: 8% 0 0 45%;
+}
+.box_li {
+  transition: all 0.6s ease;
+  padding: 2px 10px;
+  opacity: 0.5;
+  display: inline-flex;
+  align-items: center;
+}
+.box_li.active_ip {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  border: 1px solid #fff;
+  opacity: 1;
+  text-align: center;
+}
+
+.content_left-gallery--bottom ul li img {
+  width: 33px;
+  height: auto;
+  padding: 2px 5px;
+}
+
+/* phần bên phải  */
+.gallery_right {
+  position: relative;
+  width: 50%;
+}
+
+.box_color {
+  z-index: 2;
+  position: absolute;
+  background-color: #000000;
+  height: 220px;
+  width: 300px;
+  border-radius: 20px 300px 30px 230px;
+  top: 81%;
+  left: -25%;
+  filter: blur(42px);
+  box-shadow: 0 30px 20px #000000;
+}
+.box_colorVip {
+  z-index: 2;
+  position: absolute;
+  top: 83%;
+  left: 10px;
+  width: 600px;
+  height: 200px;
+  border-radius: 150px 190px 170px 230px;
+  background-color: #000000;
+  filter: blur(45px);
+}
+.box-full--gallery {
+  transition: 1s;
+  padding: 10px 20px;
+  margin-left: 8%;
+  width: 418px;
+  height: 732px;
+  position: relative;
+}
+.box-full--gallery.show {
+  transition: 1s ease-in;
+  animation: delay_logo 1s;
+}
+
+.img_box {
+  position: absolute;
+  z-index: 2;
+  width: 418px;
+  height: 732px;
+}
+.img_box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.img_content {
+  position: absolute;
+  z-index: 1;
+  width: 78%;
+  height: 98%;
+  top: -14px;
+  left: 10%;
+}
+
+.img_content img {
+  opacity: 0;
+  padding: 30px;
+  position: absolute;
+  object-fit: cover;
+  object-position: top;
+  transition: all 0.6s ease;
+}
+.img_content img.active_ip {
+  opacity: 1;
+}
+
+/* phần .background color========================================= */
 .background_color {
   position: relative;
   width: 100%;
   height: 100%;
 }
+
 .background_color .background_item {
-  transition: 1s;
+  transition: 1s ease-in;
   opacity: 0;
   position: absolute;
   background: radial-gradient(
@@ -1280,10 +1492,16 @@ a {
   );
 }
 .background_color .background_item.bg4 {
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle at 50% 50%,
     rgba(89, 123, 122, 1) 0%,
     rgba(8, 13, 13, 1) 100%
+  ); */
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(53, 61, 62, 1) 0%,
+    rgba(6, 31, 49, 1) 50%,
+    rgba(3, 1, 9, 1) 100%
   );
 }
 .background_color .background_item.bg5 {
@@ -1295,9 +1513,13 @@ a {
 }
 .background_color .background_item.active {
   opacity: 1;
+  transition: 1s ease;
 }
 
 /* phần sản phẩm  */
+.slide_last_ip.scroll_up{
+  transform: translateY(-900px);
+}
 .slide_last_ip {
   margin: 0 auto;
   overflow: hidden;
@@ -1470,3 +1692,6 @@ a {
   left: 350px;
   top: 12px;
 }
+
+
+
