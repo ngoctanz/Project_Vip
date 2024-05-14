@@ -1,73 +1,69 @@
 const list_items = document.querySelector(".slide_show .list-item");
-const items = document.querySelectorAll(".slide_show.home .list-item__item");
-const dots = document.querySelectorAll(".button--dot span");
+const items = document.querySelectorAll(".slide_show .list-item__item");
 const vector_left = document.getElementById("button__vector--left");
 const vector_right = document.getElementById("button__vector--right");
+const dots = document.querySelectorAll(".button--dot span");
 
 let active = 0;
-let lengthItems = items.length - 1;
 
-// nút chuyển phải
-vector_right.onclick = function () {
-  if (active >= lengthItems) {
-    active = 0;
-  } else {
-    active = active + 1;
-  }
-  reloadSlide();
-};
-
-// nút chuyển trái
-vector_left.onclick = function () {
-  if (active - 1 < 0) {
-    active = lengthItems;
-  } else {
-    active = active - 1;
-  }
-  reloadSlide();
-};
-
-// chuyển phải sau 6s
-let refreshSlider = setInterval(() => {
-  vector_right.click();
+let autoNext = setInterval(() => {
+  autoSlide();
 }, 6000);
 
-function reloadSlide() {
-  let checkWidth = items[active].offsetWidth;
-  list_items.style.left = -checkWidth * active + "px";
+// hàm chính
+function autoSlide() {
+  active++;
+  const firstItem = document.querySelector(
+    ".slide_show .list-item__item:first-child"
+  );
+  list_items.appendChild(firstItem);
 
-  // reset dếm sau khi bấm chuyển
-  clearInterval(refreshSlider);
-  refreshSlider = setInterval(() => {
-    vector_right.click();
+  // cập nhật dots active
+  updateActiveDot();
+
+  // reset auto chuyển
+  clearInterval(autoNext);
+  autoNext = setInterval(() => {
+    autoSlide();
   }, 6000);
-
-  // đổi vị trí active
-  let lastActiveDot = document.querySelector(".button--dot span.active--dots");
-  if (lastActiveDot) {
-    lastActiveDot.classList.remove("active--dots");
-  }
-  dots[active].classList.add("active--dots");
 }
 
-dots.forEach((span, key) => {
-  span.addEventListener("click", function () {
-    active = key;
-    reloadSlide();
+// hàm cập nhật dots active
+// duyệt qua từng dot với mỗi phần tử mang tên dot và có chỉ số là index(0,1,2..)
+function updateActiveDot() {
+  dots.forEach((dot, index) => {
+    // sau nhấn lần đầu active=1%4=1 --> active vt 2
+    if (index === active % dots.length) {
+      dot.classList.add("active--dots");
+    } else {
+      dot.classList.remove("active--dots");
+    }
   });
+}
+
+// nút phải
+vector_right.addEventListener("click", () => {
+  autoSlide();
 });
 
-document.addEventListener("visibilitychange", function () {
-  if (document.hidden) {
-    // Nếu tab không hoạt động, dừng việc tự động chuyển slide
-    clearInterval(refreshSlider);
-  } else {
-    // Nếu tab hoạt động, bắt đầu lại việc tự động chuyển slide
-    clearInterval(refreshSlider);
-    refreshSlider = setInterval(() => {
-      vector_right.click();
-    }, 6000);
+// nút trái
+vector_left.addEventListener("click", () => {
+  const lastItem = document.querySelector(
+    ".slide_show .list-item__item:last-child"
+  );
+  document.querySelector(".list-item").prepend(lastItem);
+
+  // cập nhật lại dots active
+  active--;
+  if (active < 0) {
+    active = dots.length - 1;
   }
+  updateActiveDot();
+  // reset auto chuyển
+  clearInterval(autoNext);
+  autoNext = setInterval(() => {
+    autoSlide();
+  }, 6000);
 });
 
 // video
@@ -125,6 +121,9 @@ listItems.forEach((li, key) => {
 let scrollContainers = document.querySelectorAll(".slide_show_store_item");
 let nextBtns = document.querySelectorAll("#vector--right");
 let prevBtns = document.querySelectorAll("#vector--left");
+let itemStore = document.querySelectorAll(
+  ".slide_show_store_item .box_store--item"
+);
 
 // dùng mảng để lặp từng phần tử trong scrollContainer với chỉ số là index
 scrollContainers.forEach((scrollContainer, index) => {
@@ -144,7 +143,9 @@ scrollContainers.forEach((scrollContainer, index) => {
 
   nextBtn.addEventListener("click", () => {
     scrollContainer.style.scrollBehavior = "smooth";
-    Jump += scrollContainer.clientWidth / 4; //1/4 của phần đang được hiển thị(trên tổng độ rộng scroll)
+    // Jump += scrollContainer.clientWidth / 4; //1/4 của phần đang được hiển thị(trên tổng độ rộng scroll)
+    let checkLeft = itemStore[0].offsetWidth;
+    Jump += checkLeft + 20;
     if (Jump >= scrollWidth - scrollContainer.clientWidth) {
       Jump = 0;
     }
@@ -166,7 +167,7 @@ scrollContainers.forEach((scrollContainer, index) => {
 });
 
 //========================================= phần sp banner lớn ==================================
-let slideBanner = document.querySelector(".banner_box-products .list-item");
+let slideBanner = document.querySelector(".banner_box-products  .list-item");
 let bannerItems = document.querySelectorAll(
   ".banner_box-products .list-item__item"
 );
@@ -197,3 +198,151 @@ productsBtn.forEach((li, key) => {
     nextBannerActive((numberTG -= 1));
   });
 });
+
+// phần delay animation cho cả trang==========================
+const logoElement = document.querySelector(".phone_logo");
+const element = document.querySelector(
+  ".list-item__item--content.mobile_phone"
+);
+const contentApple = document.querySelector(
+  ".banner_apple .content_in_banner--apple"
+);
+const imageApple = document.querySelector(".banner_apple .image_apple_banner");
+const ipWidget = document.querySelector(
+  ".content_left-gallery .content_left-gallery--top .p-content"
+);
+const ipContent = document.querySelector(".content_left-gallery");
+const ipImage = document.querySelector(".box-full--gallery");
+
+// hàm chính
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    // Kiểm tra nếu phần tử đang trong viewport
+    if (entry.isIntersecting) {
+      // Thêm class để kích hoạt animation
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+// Bắt đầu quan sát phần tử
+
+observer.observe(ipImage);
+observer.observe(ipContent);
+observer.observe(ipWidget);
+observer.observe(contentApple);
+observer.observe(imageApple);
+observer.observe(element);
+observer.observe(logoElement);
+
+// -------------------phần sản phẩm iphone-------------------
+
+const bgColor = document.querySelectorAll(".background_color .background_item");
+let smIP = 0;
+
+function autoSlideNext() {
+  smIP++;
+  const firstItem = document.querySelector(
+    ".list_ip .list_ip__item:first-child"
+  );
+  document.querySelector(".list_ip").appendChild(firstItem);
+  updateBG();
+}
+
+function updateBG() {
+  bgColor.forEach((bg, index) => {
+    if (smIP < 0) {
+      smIP = bgColor.length - 1;
+    } else {
+      // sau nhấn lần đầu active=1%4=1 --> active vt 2
+      if (index === smIP % bgColor.length) {
+        bg.classList.add("active");
+      } else {
+        bg.classList.remove("active");
+      }
+    }
+  });
+}
+
+function autoSlideBack() {
+  smIP--;
+  const lastItem = document.querySelector(".list_ip .list_ip__item:last-child");
+  document.querySelector(".list_ip").prepend(lastItem);
+  updateBG();
+}
+
+// phần màu sắc
+const colorList = document.querySelectorAll(
+  ".slide_last_ip .list_color_select .item_color"
+);
+const boxColor = document.querySelector(".slide_last_ip .list_color_select");
+
+var tgColor = 0;
+
+function colorActiveNext() {}
+
+// phần nút bấm chuyển
+const leftVector = document.getElementById("left-btn");
+const rightVector = document.getElementById("right-btn");
+
+rightVector.addEventListener("click", () => {
+  const firstColor = document.querySelector(
+    ".slide_last_ip .list_color_select .item_color:first-child"
+  );
+  document.querySelector(".list_color_select").appendChild(firstColor);
+  autoSlideNext();
+});
+leftVector.addEventListener("click", () => {
+  const lastColor = document.querySelector(
+    ".slide_last_ip .list_color_select .item_color:last-child"
+  );
+  document.querySelector(".list_color_select").prepend(lastColor);
+  autoSlideBack();
+});
+
+// phần giới thiệu tính năng ip15
+
+const listItemIPmini = document.querySelectorAll(
+  ".content_left-gallery--bottom li .box_li"
+);
+const imagesIP = document.querySelectorAll(".img_content img");
+
+listItemIPmini.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    listItemIPmini.forEach((item) => {
+      item.classList.remove("active_ip");
+      // Xóa lớp active khỏi tất cả các ảnh
+      imagesIP.forEach((image) => {
+        image.classList.remove("active_ip");
+      });
+    });
+
+    // Thêm lớp active cho ảnh tương ứng với phần tử li được nhấp vào
+    imagesIP[index].classList.add("active_ip");
+    listItemIPmini[index].classList.add("active_ip");
+  });
+});
+
+// cuộn lên che đi phần tử dùng cho nhiều phần tử từ sau banner giới thiệu =============================
+const btnScroll = document.querySelector(
+  ".banner_apple .content_in_banner--apple .btn.btn_apple-banner"
+);
+const noneItem = document.querySelector(".banner_apple .image_apple_banner");
+const contentOut = document.querySelector(
+  ".banner_apple .content_in_banner--apple"
+);
+const itembottomUp = document.querySelector(".slide_last_ip ");
+
+btnScroll.addEventListener("click", () => {
+  const itemHide = document.querySelector(".action_gallery");
+  itemHide.classList.add("scroll_up");
+  itembottomUp.classList.add("scroll_up");
+  // phần out của trang hiện tại
+  noneItem.classList.remove("show");
+  noneItem.classList.add("hide");
+
+  contentOut.classList.remove("show");
+  contentOut.classList.add("hide");
+});
+
+// =======================================================================
