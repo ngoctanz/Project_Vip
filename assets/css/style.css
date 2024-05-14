@@ -620,7 +620,6 @@ a {
 }
 .slide_show_store_item.store2 {
   background-color: #ffffff0d;
-
 }
 .products_store_new.store2 .box_store--item {
   background-color: hsla(0, 0%, 95%, 0.568);
@@ -1163,7 +1162,7 @@ a {
 }
 
 @keyframes hidePage {
-  from{
+  from {
     transform: translateY(0);
   }
   to {
@@ -1171,8 +1170,8 @@ a {
     transform: translateY(-100%);
   }
 }
-@keyframes hide_content_down{
-  to{
+@keyframes hide_content_down {
+  to {
     transform: translateY(100%);
     opacity: 1;
   }
@@ -1199,7 +1198,7 @@ a {
   height: 100%;
   padding: 280px 200px;
 }
-.banner_apple .content_in_banner--apple.hide{
+.banner_apple .content_in_banner--apple.hide {
   animation: hide_content_down 1.8s ease-in;
 }
 .banner_apple .content_in_banner--apple.show {
@@ -1253,7 +1252,7 @@ a {
   right: 50px;
   opacity: 0;
 }
-.banner_apple .image_apple_banner.hide{
+.banner_apple .image_apple_banner.hide {
   animation: hidePage 1.8s ease-in;
 }
 .banner_apple .image_apple_banner.show {
@@ -1518,8 +1517,7 @@ a {
 }
 
 /* phần sản phẩm  */
-.slide_last_ip.scroll_up{
-
+.slide_last_ip.scroll_up {
   animation: scrollSlowly 2s ease-in-out forwards;
 }
 .slide_last_ip {
@@ -1695,6 +1693,3 @@ a {
   left: 350px;
   top: 12px;
 }
-
-
-
