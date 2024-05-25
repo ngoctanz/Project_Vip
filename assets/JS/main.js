@@ -143,7 +143,6 @@ scrollContainers.forEach((scrollContainer, index) => {
 
   nextBtn.addEventListener("click", () => {
     scrollContainer.style.scrollBehavior = "smooth";
-    // Jump += scrollContainer.clientWidth / 4; //1/4 của phần đang được hiển thị(trên tổng độ rộng scroll)
     let checkLeft = itemStore[0].offsetWidth;
     Jump += checkLeft + 20;
     if (Jump >= scrollWidth - scrollContainer.clientWidth) {
@@ -204,10 +203,7 @@ const logoElement = document.querySelector(".phone_logo");
 const element = document.querySelector(
   ".list-item__item--content.mobile_phone"
 );
-const contentApple = document.querySelector(
-  ".banner_apple .content_in_banner--apple"
-);
-const imageApple = document.querySelector(".banner_apple .image_apple_banner");
+
 const ipWidget = document.querySelector(
   ".content_left-gallery .content_left-gallery--top .p-content"
 );
@@ -230,8 +226,6 @@ const observer = new IntersectionObserver((entries, observer) => {
 observer.observe(ipImage);
 observer.observe(ipContent);
 observer.observe(ipWidget);
-observer.observe(contentApple);
-observer.observe(imageApple);
 observer.observe(element);
 observer.observe(logoElement);
 
@@ -331,18 +325,18 @@ const noneItem = document.querySelector(".banner_apple .image_apple_banner");
 const contentOut = document.querySelector(
   ".banner_apple .content_in_banner--apple"
 );
-const itembottomUp = document.querySelector(".slide_last_ip ");
+// const itembottomUp = document.querySelector(".slide_last_ip ");
 
-btnScroll.addEventListener("click", () => {
-  const itemHide = document.querySelector(".action_gallery");
-  itemHide.classList.add("scroll_up");
-  itembottomUp.classList.add("scroll_up");
-  // phần out của trang hiện tại
-  noneItem.classList.remove("show");
-  noneItem.classList.add("hide");
+// btnScroll.addEventListener("click", () => {
+//   const itemHide = document.querySelector(".action_gallery");
+//   itemHide.classList.add("scroll_up");
+//   itembottomUp.classList.add("scroll_up");
+//   // phần out của trang hiện tại
+//   noneItem.classList.remove("show");
+//   noneItem.classList.add("hide");
 
-  contentOut.classList.remove("show");
-  contentOut.classList.add("hide");
-});
+//   contentOut.classList.remove("show");
+//   contentOut.classList.add("hide");
+// });
 
 // =======================================================================

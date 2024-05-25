@@ -610,21 +610,6 @@ a {
 
 /*====================================== phần sản phẩm gợi ý ======================================== */
 
-/* chỉnh riêng cho mục thứ 2 */
-.products_store_new.store2 {
-  z-index: 1;
-  margin-top: 320px;
-}
-.products_store_new.store2 .h2-content {
-  color: #ffffff;
-}
-.slide_show_store_item.store2 {
-  background-color: #ffffff0d;
-}
-.products_store_new.store2 .box_store--item {
-  background-color: hsla(0, 0%, 95%, 0.568);
-}
-
 /* title gợi ý sản phẩm  */
 
 .products_store_new .h2-content {
@@ -873,7 +858,7 @@ a {
 /*======================== big banner XIAOMI============================  */
 /* tiêu đề h2  */
 .banner_box-products {
-  margin: 700px auto;
+  margin: 700px auto 0;
   width: 1460px;
   position: relative;
 }
@@ -980,7 +965,7 @@ a {
   height: 700px;
   position: relative;
   z-index: 1;
-  top: 1245px;
+  top: 1945px;
   margin: 0 auto;
   padding-bottom: 2000px;
   background-color: #000000;
@@ -1021,6 +1006,20 @@ a {
   color: rgba(97, 182, 122, 0.852);
   padding: 15px 0;
 }
+/* chỉnh riêng cho mục thứ 2 */
+.products_store_new.store2 {
+  z-index: 1;
+}
+.products_store_new.store2 .h2-content {
+  color: #ffffff;
+}
+.slide_show_store_item.store2 {
+  background-color: #ffffff0d;
+}
+.products_store_new.store2 .box_store--item {
+  background-color: hsla(0, 0%, 95%, 0.568);
+}
+
 @keyframes delay_logo {
   from {
     transform: translate(0, -100%);
@@ -1047,16 +1046,14 @@ a {
 /* =======================================banner lớn có video ở giữa ================================= */
 .box_banner_center {
   position: relative;
-  top: -700px;
+  width: 1519px;
+  margin: 0 auto;
 }
 .h1-content.special_banner {
   font-size: 9rem;
   width: 80%;
 }
-.box_banner_center {
-  width: 1519px;
-  margin: 0 auto;
-}
+
 .box_banner_center .video_box_item .p-content {
   font-size: 1.3rem;
   color: rgba(129, 129, 129, 0.626);
@@ -1138,27 +1135,29 @@ a {
 }
 
 /* ======================================phần sản phẩm của apple=================================  */
-.brand_set {
-  display: flex;
-  align-items: end;
-  gap: 10px;
-  z-index: 1;
-  position: absolute;
-  top: -175px;
-  left: 40%;
-}
-.brand_set .name_brand {
-  transform: translateY(-20px);
-  color: #000000;
-  font-size: 6rem;
-  font-weight: 800;
-  text-shadow: 0 2px 1px #747474, -1px 3px 1px #767676, -2px 5px 1px #787878;
-}
-.logo_brand.apple {
-  width: 70px;
-}
-.logo_brand.apple img {
+/* logo */
+.banner_apple {
+  height: 200px;
   width: 100%;
+  margin: 2100px auto 0;
+}
+.banner_apple .brand_set {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.banner_apple .brand_set img {
+  width: 88px;
+  height: auto;
+}
+.banner_apple .name_brand {
+  transform: translateY(50%);
+  font-size: 7.2rem;
+  font-weight: 600;
+  color: #000;
+  padding: 0 10px;
+  text-shadow: 0 2px 1px #4d4c4c, -1px 3px 1px #494848, -2px 5px 1px #505050;
 }
 
 @keyframes hidePage {
@@ -1175,94 +1174,6 @@ a {
     transform: translateY(100%);
     opacity: 1;
   }
-}
-
-/* phần banner giới thiệu=========  */
-.banner_apple {
-  position: relative;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(53, 61, 62, 1) 0%,
-    rgba(6, 31, 49, 1) 50%,
-    rgba(3, 1, 9, 1) 100%
-  );
-
-  height: 900px;
-  width: 1519px;
-  margin: 960px auto 0;
-}
-
-.banner_apple .content_in_banner--apple {
-  opacity: 0;
-  width: 65%;
-  height: 100%;
-  padding: 280px 200px;
-}
-.banner_apple .content_in_banner--apple.hide {
-  animation: hide_content_down 1.8s ease-in;
-}
-.banner_apple .content_in_banner--apple.show {
-  animation: delay_content 0.8s ease 0.6s forwards;
-}
-
-.banner_apple .content_in_banner--apple .logo_in_top {
-  padding: 25px 0;
-  gap: 8px;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-}
-.banner_apple .content_in_banner--apple .logo_in_top img {
-  width: 60px;
-  height: auto;
-}
-.banner_apple .content_in_banner--apple .logo_in_top .name_logo {
-  transform: translateY(-2px);
-  text-align: end;
-  color: #ffffff;
-  font-size: 3.8rem;
-  font-weight: 600;
-}
-.banner_apple .content_in_banner--apple .h1-content {
-  width: 100%;
-  text-align: center;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 7rem;
-}
-.banner_apple .content_in_banner--apple .p-content {
-  font-size: 2.2rem;
-  color: #dfdfdf84;
-  margin-bottom: 15px;
-  width: 100%;
-  text-align: center;
-}
-.btn.btn_apple-banner {
-  background-color: transparent;
-  border: 1px solid #fff;
-  margin: 0 auto;
-}
-.btn.btn_apple-banner:hover {
-  background-color: #9b9a96c3;
-  transform: scale(1.05);
-}
-.banner_apple .image_apple_banner {
-  position: absolute;
-  top: 40px;
-  right: 50px;
-  opacity: 0;
-}
-.banner_apple .image_apple_banner.hide {
-  animation: hidePage 1.8s ease-in;
-}
-.banner_apple .image_apple_banner.show {
-  animation: delay_logo 0.8s ease 0.6s forwards;
-}
-
-.banner_apple .image_apple_banner img {
-  height: 820px;
-  object-fit: cover;
-  object-position: center;
 }
 
 /* phần giới thiệu tính năng ===================================== */
@@ -1283,7 +1194,7 @@ a {
   margin: 0 auto;
   position: relative;
   width: 1519px;
-  /* z-index: -1; */
+
   background-color: #000000;
 }
 .action_gallery.scroll_up {
@@ -1500,11 +1411,6 @@ a {
   );
 }
 .background_color .background_item.bg4 {
-  /* background: radial-gradient(
-    circle at 50% 50%,
-    rgba(89, 123, 122, 1) 0%,
-    rgba(8, 13, 13, 1) 100%
-  ); */
   background-image: linear-gradient(
     27deg,
     #f6f3f7ff 0%,
@@ -1532,7 +1438,6 @@ a {
   animation: scrollSlowly 2s ease-in-out forwards;
 }
 .slide_last_ip {
-  opacity: 0;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
