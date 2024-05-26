@@ -318,25 +318,70 @@ listItemIPmini.forEach((item, index) => {
 });
 
 // cuộn lên che đi phần tử dùng cho nhiều phần tử từ sau banner giới thiệu =============================
-const btnScroll = document.querySelector(
-  ".banner_apple .content_in_banner--apple .btn.btn_apple-banner"
-);
-const noneItem = document.querySelector(".banner_apple .image_apple_banner");
-const contentOut = document.querySelector(
-  ".banner_apple .content_in_banner--apple"
-);
-// const itembottomUp = document.querySelector(".slide_last_ip ");
+const btnScroll = document.querySelector(".slide_last_ip .btn-bottom_more");
 
-// btnScroll.addEventListener("click", () => {
-//   const itemHide = document.querySelector(".action_gallery");
-//   itemHide.classList.add("scroll_up");
-//   itembottomUp.classList.add("scroll_up");
-//   // phần out của trang hiện tại
-//   noneItem.classList.remove("show");
-//   noneItem.classList.add("hide");
-
-//   contentOut.classList.remove("show");
-//   contentOut.classList.add("hide");
-// });
+btnScroll.addEventListener("click", () => {
+  window.scrollBy({ top: 730, behavior: "smooth" });
+});
 
 // =======================================================================
+// phần list sản phẩm ip
+let boxipProducts = document.querySelector(
+  ".store_card-products .box_card_item"
+);
+let listProductsIP = document.querySelectorAll(
+  ".store_card-products .apple_card .item_apple"
+);
+const nextProduct = document.querySelector(".btn_apple.right-product img");
+const prevProduct = document.querySelector(".btn_apple.left-product img");
+
+let TGindex = 0;
+
+function updateScroll() {
+
+  var checkLeft = listProductsIP[TGindex].offsetLeft;
+  boxipProducts.style.scrollBehavior = "smooth";
+  boxipProducts.scrollLeft = checkLeft - 50; 
+}
+
+function updateButtons() {
+  if (TGindex === 0) {
+    prevProduct.parentElement.classList.remove("visible");
+  } else {
+    prevProduct.parentElement.classList.add("visible");
+  }
+
+  // mỗi lần chuyển sang item 2 bên dư, tổng thiếu 3 lần
+  if (TGindex === listProductsIP.length - 3) {
+    nextProduct.parentElement.classList.remove("visible");
+  } else {
+    nextProduct.parentElement.classList.add("visible");
+  }
+}
+ 
+function nextProductIP() {
+  if (TGindex < listProductsIP.length - 1) {
+    TGindex++;
+    updateScroll();
+    updateButtons();
+  }
+}
+
+function prevProductIP() {
+  if (TGindex > 0) {
+    TGindex--;
+    updateScroll();
+    updateButtons();
+  }
+}
+
+nextProduct.addEventListener("click", () => {
+  nextProductIP();
+});
+
+prevProduct.addEventListener("click", () => {
+  prevProductIP();
+});
+
+// Cập nhật nút hiển thị ban đầu
+updateButtons();
