@@ -8,7 +8,7 @@ let active = 0;
 
 let autoNext = setInterval(() => {
   autoSlide();
-}, 6000);
+}, 7000);
 
 // hàm chính
 function autoSlide() {
@@ -25,7 +25,7 @@ function autoSlide() {
   clearInterval(autoNext);
   autoNext = setInterval(() => {
     autoSlide();
-  }, 6000);
+  }, 7000);
 }
 
 // hàm cập nhật dots active
@@ -64,14 +64,6 @@ vector_left.addEventListener("click", () => {
   autoNext = setInterval(() => {
     autoSlide();
   }, 6000);
-});
-
-// video
-var videoElement = document.querySelector("video");
-
-// Thêm sự kiện 'mouseover' để bắt đầu phát video
-videoElement.addEventListener("mouseover", function () {
-  videoElement.play();
 });
 
 // ================================================js cho trang sản phẩm====================================================
@@ -129,22 +121,19 @@ let itemStore = document.querySelectorAll(
 scrollContainers.forEach((scrollContainer, index) => {
   // lấy chiều rộng tổng kể cả phần k thấy
   let scrollWidth = scrollContainer.scrollWidth;
-  let Jump = scrollContainer.scrollLeft;
   let nextBtn = nextBtns[index];
   let prevBtn = prevBtns[index];
 
+  var Jump = 0;
+
   function scrollLoad() {
     scrollContainer.scrollLeft = Jump;
-    clearInterval(autoScroll);
-    autoScroll = setInterval(() => {
-      nextBtn.click();
-    }, 4000);
   }
 
   nextBtn.addEventListener("click", () => {
     scrollContainer.style.scrollBehavior = "smooth";
-    let checkLeft = itemStore[0].offsetWidth;
-    Jump += checkLeft + 20;
+    let checkWidth = itemStore[0].offsetWidth;
+    Jump += checkWidth + 20;
     if (Jump >= scrollWidth - scrollContainer.clientWidth) {
       Jump = 0;
     }
@@ -159,10 +148,6 @@ scrollContainers.forEach((scrollContainer, index) => {
     }
     scrollLoad();
   });
-
-  let autoScroll = setInterval(() => {
-    nextBtn.click();
-  }, 4000);
 });
 
 //========================================= phần sp banner lớn ==================================
@@ -199,7 +184,7 @@ productsBtn.forEach((li, key) => {
 });
 
 // phần delay animation cho cả trang==========================
-const logoElement = document.querySelector(".phone_logo");
+// const logoElement = document.querySelector("#phone_logo");
 const element = document.querySelector(
   ".list-item__item--content.mobile_phone"
 );
@@ -227,7 +212,6 @@ observer.observe(ipImage);
 observer.observe(ipContent);
 observer.observe(ipWidget);
 observer.observe(element);
-observer.observe(logoElement);
 
 // -------------------phần sản phẩm iphone-------------------
 
@@ -319,9 +303,15 @@ listItemIPmini.forEach((item, index) => {
 
 // cuộn lên che đi phần tử dùng cho nhiều phần tử từ sau banner giới thiệu =============================
 const btnScroll = document.querySelector(".slide_last_ip .btn-bottom_more");
+const bannerScroll = document.querySelector(".action_gallery");
+const listPrScroll = document.querySelectorAll(".store_card-products");
 
 btnScroll.addEventListener("click", () => {
   window.scrollBy({ top: 730, behavior: "smooth" });
+  bannerScroll.classList.add("scroll_down");
+  listPrScroll.forEach((item) => {
+    item.classList.add("scroll_down");
+  });
 });
 
 // =======================================================================
@@ -338,10 +328,9 @@ const prevProduct = document.querySelector(".btn_apple.left-product img");
 let TGindex = 0;
 
 function updateScroll() {
-
   var checkLeft = listProductsIP[TGindex].offsetLeft;
   boxipProducts.style.scrollBehavior = "smooth";
-  boxipProducts.scrollLeft = checkLeft - 50; 
+  boxipProducts.scrollLeft = checkLeft - 50;
 }
 
 function updateButtons() {
@@ -358,7 +347,7 @@ function updateButtons() {
     nextProduct.parentElement.classList.add("visible");
   }
 }
- 
+
 function nextProductIP() {
   if (TGindex < listProductsIP.length - 1) {
     TGindex++;
@@ -385,3 +374,30 @@ prevProduct.addEventListener("click", () => {
 
 // Cập nhật nút hiển thị ban đầu
 updateButtons();
+// phần drag
+const carousel = document.querySelector(".store_card-products .box_card_item");
+
+let dragStart = false,
+  prevPageX,
+  prevScrollLeft;
+
+const dragStartEvent = (e) => {
+  dragStart = true;
+  prevPageX = e.pageX;
+  prevScrollLeft = carousel.scrollLeft;
+};
+
+const draggingEvent = (e) => {
+  if (!dragStart) return;
+  e.preventDefault();
+  let positionDiff = e.pageX - prevPageX;
+  carousel.scrollLeft = prevScrollLeft - positionDiff;
+};
+
+const dragEndEvent = () => {
+  dragStart = false;
+};
+
+carousel.addEventListener("mousemove", draggingEvent);
+carousel.addEventListener("mousedown", dragStartEvent);
+carousel.addEventListener("mouseup", dragEndEvent);

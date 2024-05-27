@@ -175,25 +175,86 @@ a {
 .slide_show .list-item__item.item4 img {
   object-position: center;
 }
-.slide_show .list-item__item video {
-  position: relative;
-  width: 1600px;
-  height: 100%;
-  object-fit: cover;
-  object-position: center left;
-}
+
 .list-item__item--content .action {
   margin-top: 36px;
 }
 /* content của mỗi item  */
-.list-item__item--content.vd1 {
+/*================================== phần video điện thoại tối ======================================== */
+
+.box_video_phone {
+  position: relative;
+  width: 1519px;
+  height: 730px;
+  background-color: #000;
+}
+.video_banner_xiaomi {
+  object-fit: cover;
+  margin-left: 5%;
+  width: 92%;
+  height: 90%;
+}
+.list-item__item--content.mobile_phone {
+  padding-top: 200px;
   position: absolute;
-  top: 34%;
-  left: 7%;
-  animation: delay_content 1s ease 3.2s 1 forwards;
+  top: 200px;
   opacity: 0;
+  transition-duration: 0.6s;
+  left: 7%;
+}
+.list-item__item--content.mobile_phone.show {
+  animation: delay_content 1s ease 1.5s forwards;
 }
 
+#phone_logo {
+  transition-duration: 0.6s;
+  opacity: 0;
+  width: 350px;
+  height: auto;
+  position: absolute;
+  top: 5%;
+  left: 37%;
+  /* đảo màu ảnh  */
+  filter: invert(1) saturate(0) grayscale(100%);
+  animation: delay_logo 1s ease 0.7s forwards;
+}
+.phone_logo {
+}
+.box_video_phone .h1-content {
+  width: 100%;
+  font-size: 4rem;
+}
+
+.list-item__item.box_video_phone .h3-content {
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgba(97, 182, 122, 0.852);
+  padding: 15px 0;
+}
+
+@keyframes delay_logo {
+  from {
+    transform: translate(0, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes delay_content {
+  from {
+    opacity: 0;
+    transform: translate(0, 100px);
+    filter: blur(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+    filter: blur(0);
+  }
+}
+/* ================================= phần các item còn lại ======================================== */
 .list-item__item--content.n2 {
   position: absolute;
   top: 34%;
@@ -235,6 +296,7 @@ a {
 }
 /* nút chuyển hai bên  */
 .button__vector {
+  opacity: 0.7;
   display: flex;
   z-index: 1;
 }
@@ -861,6 +923,7 @@ a {
 .banner_box-products {
   margin: 700px auto 0;
   width: 1480px;
+
   position: relative;
 }
 .banner_box-products .image_banner img {
@@ -886,6 +949,8 @@ a {
   margin-top: 0px;
   width: 100%;
   border-radius: 15px;
+
+  box-shadow: 2px 4px 10px #999999;
 }
 
 /* nhận giá trị left để thay đổi vị trí */
@@ -959,76 +1024,6 @@ a {
   top: 32%;
   left: 10%;
 }
-/*================================== phần video điện thoại tối ======================================== */
-
-.video_mobile_phone {
-  width: 1519px;
-  height: 1100px;
-  position: relative;
-  z-index: 1;
-  top: 1945px;
-  margin: 0 auto;
-  background-color: #000000;
-}
-.video_mobile_phone video {
-  height: 96%;
-  width: 1519px;
-}
-.list-item__item--content.mobile_phone {
-  padding-top: 200px;
-  position: absolute;
-  top: 430px;
-  opacity: 0;
-  transition-duration: 0.6s;
-  left: 7%;
-}
-.list-item__item--content.mobile_phone.show {
-  animation: delay_content 1s ease 1s forwards;
-}
-
-.phone_logo {
-  transition-duration: 0.6s;
-  opacity: 0;
-  width: 400px;
-  height: auto;
-  position: absolute;
-  top: 4%;
-  left: 37%;
-  /* đảo màu ảnh  */
-  filter: invert(1) saturate(0) grayscale(100%);
-}
-.phone_logo.show {
-  animation: delay_logo 0.8s ease 0.6s forwards;
-}
-
-.video_mobile_phone .h3-content {
-  font-weight: 850;
-  color: rgba(97, 182, 122, 0.852);
-  padding: 15px 0;
-}
-
-@keyframes delay_logo {
-  from {
-    transform: translate(0, -100%);
-    opacity: 0;
-  }
-  to {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-}
-@keyframes delay_content {
-  from {
-    opacity: 0;
-    transform: translate(0, 100px);
-    filter: blur(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(0, 0);
-    filter: blur(0);
-  }
-}
 
 /* =======================================banner lớn có video ở giữa ================================= */
 .box_banner_center {
@@ -1045,35 +1040,12 @@ a {
   font-size: 1.3rem;
   color: rgba(129, 129, 129, 0.626);
 }
-
-/* ảnh 1  */
-.box_banner_center .box_full_photo-content {
-  position: relative;
-}
-.box_banner_center .photo_content img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  object-position: bottom;
-}
-.box_banner_center .photo_content .content_in_photo-box {
-  position: absolute;
-  top: 20%;
-  left: 23%;
-}
-.box_full_photo-content .video_text {
-  font-size: 2rem;
-  font-weight: 900;
-  color: rgba(97, 182, 122, 0.852);
-  padding-bottom: 40px;
-}
-
 /* video 1 */
 
 .box_banner_center .video_banner {
   width: 100%;
   position: absolute;
-  top: 1045px;
+  top: 0;
 }
 .box_banner_center .video_banner .video_box_item {
   position: relative;
@@ -1126,9 +1098,10 @@ a {
 .banner_apple {
   height: 200px;
   width: 100%;
-  margin: 2030px auto 0;
+  margin: 0 auto;
 }
 .banner_apple .brand_set {
+  opacity: 0.6;
   display: flex;
   margin: 0 auto;
   justify-content: center;
@@ -1139,10 +1112,10 @@ a {
   height: auto;
 }
 .banner_apple .name_brand {
-  transform: translateY(50%);
+  transform: translateY(48%);
   font-size: 6.8rem;
   font-weight: 600;
-  color: #000;
+  color: #121212d0;
   padding: 0 10px;
   text-shadow: 0 2px 1px #4d4c4c, -1px 3px 1px #494848, -2px 5px 1px #505050;
 }
@@ -1166,17 +1139,29 @@ a {
 /* phần giới thiệu tính năng ===================================== */
 /* phần content trái -------------------- */
 
+@keyframes showbanner {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .action_gallery {
-  /* opacity: 0; */
+  opacity: 0;
   transition: 1s ease-in;
   margin: 0 auto;
   position: relative;
-  width: 1519px;
+  width: 1480px;
+  border-radius: 15px;
 
-  background-color: #000000;
+}
+.action_gallery.scroll_down {
+  animation: showbanner 1s ease-in forwards;
 }
 .box-action_gallery {
-  padding: 400px 20px 200px;
+  padding: 450px 20px 100px;
   display: flex;
 }
 .content_left-gallery {
@@ -1198,16 +1183,17 @@ a {
 }
 .content_left-gallery .content_left-gallery--top .h1-content {
   font-size: 8rem;
-  font-weight: 600;
-  color: #dfdfdf;
+  font-weight: 700;
+  color: #000;
   width: 500px;
 }
 .content_left-gallery .content_left-gallery--top .p-content {
   position: relative;
+  font-weight: 600;
   font-size: 1.9rem;
   width: 350px;
   margin-top: 70px;
-  color: #dfdfdfa1;
+  color: #000;
   font-weight: 500;
   line-height: 25px;
 }
@@ -1220,18 +1206,18 @@ a {
   left: -5px;
   width: 0;
   height: 1px;
-  background-color: #ffffff61;
+  background-color: #181818d4;
 }
 .content_left-gallery .content_left-gallery--top .p-content.show::after {
   transition: width 1.5s ease;
   width: 550px;
 }
 .content_left-gallery .content_left-gallery--top .special_text {
-  color: #fff;
+  color: #00000098;
 }
 .content_left-gallery--bottom ul li {
   cursor: pointer;
-  color: #dfdfdf;
+  color: #000;
   font-weight: 500;
   padding: 2px 0;
 
@@ -1261,6 +1247,7 @@ a {
 }
 
 .content_left-gallery--bottom ul li img {
+  filter: invert(1) saturate(0) grayscale(100%);
   width: 33px;
   height: auto;
   padding: 2px 5px;
@@ -1275,25 +1262,25 @@ a {
 .box_color {
   z-index: 2;
   position: absolute;
-  background-color: #000000;
+  background-color: #fff;
   height: 220px;
   width: 300px;
   border-radius: 20px 300px 30px 230px;
-  top: 81%;
+  top: 85%;
   left: -25%;
-  filter: blur(42px);
-  box-shadow: 0 30px 20px #000000;
+  filter: blur(36px);
+  box-shadow: 0 30px 20px #fff;
 }
 .box_colorVip {
   z-index: 2;
   position: absolute;
-  top: 83%;
-  left: 10px;
+  top: 88%;
+  left: 15px;
   width: 600px;
   height: 200px;
   border-radius: 150px 190px 170px 230px;
-  background-color: #000000;
-  filter: blur(45px);
+  background-color: #fff;
+  filter: blur(30px);
 }
 .box-full--gallery {
   transition: 1s;
@@ -1311,9 +1298,35 @@ a {
 .img_box {
   position: absolute;
   z-index: 2;
-  width: 418px;
+  width: 417px;
   height: 732px;
 }
+
+/* che ảnh thừa  */
+.img_box::before {
+  content: "";
+  position: absolute;
+  top: -67px;
+  left: 15px;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  opacity: 1;
+  transform: rotate(16deg);
+}
+.img_box::after {
+  content: "";
+  border-radius: 10px;
+  position: absolute;
+  top: 29px;
+  left: 388px;
+  width: 10%;
+  height: 100px;
+  background-color: #fff;
+  opacity: 1;
+  transform: rotate(122deg);
+}
+/* =========== */
 .img_box img {
   width: 100%;
   height: 100%;
@@ -1323,10 +1336,10 @@ a {
 .img_content {
   position: absolute;
   z-index: 1;
-  width: 78%;
+  width: 82%;
   height: 98%;
-  top: -14px;
-  left: 10%;
+  top: -13px;
+  left: 11.5%;
 }
 
 .img_content img {
@@ -1336,6 +1349,7 @@ a {
   object-fit: cover;
   object-position: top;
   transition: all 0.6s ease;
+  border-radius: 50px 200px 0 0;
 }
 .img_content img.active_ip {
   opacity: 1;
@@ -1416,8 +1430,10 @@ a {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  width: 1519px;
+  width: 1480px;
   height: 730px;
+  border-radius: 15px;
+  box-shadow: 2px 4px 10px #999999;
 }
 .list_ip .list_ip__item {
   transition: 1s;
@@ -1622,11 +1638,15 @@ a {
 
 /* list sản phẩm apple  */
 .store_card-products {
+  transform: translateY(-1200px);
   position: relative;
-
   width: 1519px;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 30px 0;
+  transition: all 1s ease-in;
+}
+.store_card-products.scroll_down {
+  transform: translateY(0);
 }
 .store_card-products .title_apple_card {
   padding: 30px 100px;
@@ -1654,10 +1674,9 @@ a {
   border-radius: 15px;
   position: relative;
 }
-.store_card-products .apple_card .item_apple:hover{
+.store_card-products .apple_card .item_apple:hover {
   transform: scale(1.015, 1.015);
   box-shadow: 0px 10px 23px 0px rgba(0, 0, 0, 0.119);
-
 }
 .store_card-products .apple_card .item_apple img {
   width: 100%;
@@ -1736,9 +1755,9 @@ a {
   opacity: 1;
 }
 
-.btn_apple{
+.btn_apple {
   display: none;
 }
-.btn_apple.visible{
+.btn_apple.visible {
   display: block;
 }
