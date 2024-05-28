@@ -372,7 +372,7 @@ a {
 }
 /* title h2  */
 .hero .title-item {
-  padding: 36px 10px 0px;
+  padding: 45px 10px 20px;
 }
 .title-item .h2-content {
   margin: 0 auto;
@@ -674,12 +674,11 @@ a {
 /*====================================== phần sản phẩm gợi ý ======================================== */
 
 /* title gợi ý sản phẩm  */
-
 .products_store_new .h2-content {
   margin: 0 auto;
   text-align: center;
   display: block;
-  padding: 60px 0;
+  padding: 60px 0 0;
 }
 /* ==============phần các item sản phẩm===========  */
 .box_store--item {
@@ -688,8 +687,6 @@ a {
   width: 300px;
   padding: 16px;
   border-radius: 12px;
-  /* border: 1px solid #e2dfda4d; */
-  /* background-color: #a5a5a51c; */
 }
 
 /* nội dung thẻ sản phẩm  */
@@ -944,7 +941,7 @@ a {
 /*======================== big banner XIAOMI============================  */
 /* tiêu đề h2  */
 .banner_box-products {
-  margin: 700px auto 0;
+  margin: 720px auto 0;
   width: 1480px;
 
   position: relative;
@@ -952,17 +949,6 @@ a {
 .banner_box-products .image_banner img {
   object-fit: cover;
   object-position: 65%;
-}
-.logo_brand {
-  text-align: center;
-  display: block;
-}
-.logo_brand img {
-  font-family: "Poppins", sans-serif;
-  width: 220px;
-  height: auto;
-  padding: 20px 0 20px;
-  margin-top: 50px;
 }
 
 .products_banner {
@@ -993,7 +979,7 @@ a {
 /* danh mục sp  */
 .products_list.banner_list {
   position: absolute;
-  top: 15%;
+  top: 2%;
   left: 30%;
 }
 .products_list.banner_list ul {
@@ -1046,6 +1032,31 @@ a {
   position: absolute;
   top: 32%;
   left: 10%;
+}
+
+/* phần mini banner dưới xiaomi  */
+.banner_support_mini{
+  margin: 130px auto 50px;
+}
+.mini_banner {
+  margin: 0 auto;
+  gap: 22px;
+  display: flex;
+  width: 90%;
+  height: 250px;
+}
+.mini_banner .item-mini_banner {
+  padding: 20px;
+  width: 24%;
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.066);
+}
+.mini_banner .item-mini_banner .h4-content {
+  padding: 8px;
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 28px;
 }
 
 /* =======================================banner lớn có video ở giữa ================================= */
@@ -1122,31 +1133,6 @@ a {
 }
 
 /* ======================================phần sản phẩm của apple=================================  */
-/* logo */
-.banner_apple {
-  height: 200px;
-  width: 100%;
-  margin: 0 auto;
-}
-.banner_apple .brand_set {
-  opacity: 0.6;
-  display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-}
-.banner_apple .brand_set img {
-  width: 80px;
-  height: auto;
-}
-.banner_apple .name_brand {
-  transform: translateY(48%);
-  font-size: 6.8rem;
-  font-weight: 600;
-  color: #121212d0;
-  padding: 0 10px;
-  text-shadow: 0 2px 1px #4d4c4c, -1px 3px 1px #494848, -2px 5px 1px #505050;
-}
 
 @keyframes hidePage {
   from {
@@ -1454,7 +1440,7 @@ a {
   animation: scrollSlowly 2s ease-in-out forwards;
 }
 .slide_last_ip {
-  margin: 0 auto;
+  margin: 100px auto 0;
   overflow: hidden;
   position: relative;
   width: 1480px;
@@ -1675,7 +1661,7 @@ a {
 .store_card-products.scroll_down {
   transform: translateY(0);
 }
-.store_card-products .title_apple_card {
+.title_apple_card {
   padding: 30px 100px;
   font-size: 3rem;
   font-weight: 600;
@@ -1740,7 +1726,6 @@ a {
   color: #ffffff;
 }
 .store_card-products .apple_card {
-  transform: translateX(0);
   transition: 1s;
   position: absolute;
   display: flex;
@@ -1842,4 +1827,51 @@ a {
 
 .hide_text {
   visibility: hidden;
+}
+
+.support_card {
+  margin-top: 50px;
+  width: 100%;
+  height: 500px;
+}
+.support_card .list_item_card {
+  padding-left: 100px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 20px;
+}
+.support_card .list_item_card .item_card {
+  z-index: 1;
+  position: relative;
+  border-radius: 15px;
+  width: 480px;
+  height: 500px;
+  transition: 0.2s ease-in;
+  box-shadow: 2px 3px 5px 4px rgba(0, 0, 0, 0.05);
+}
+.support_card .list_item_card .item_card:hover {
+  box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.119);
+  transform: scale(1.02, 1.02);
+}
+.support_card .list_item_card .item_card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.support_card .content_in_card_support {
+  padding: 30px;
+  position: absolute;
+  height: 40%;
+  top: 0;
+}
+.support_card .content_in_card_support span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.559);
+}
+.support_card .content_in_card_support .h3-content {
+  font-size: 2.7rem;
+  font-weight: 600;
+  margin-top: 15px;
 }
