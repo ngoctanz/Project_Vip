@@ -841,16 +841,20 @@ a {
 /* nút riêng cho store  */
 .btn.btn-store_item {
   margin: 0 auto;
-  width: 220px;
+  width: 250px;
   transition: all 0.3s ease;
 }
 .store_new__main .store_new__main--content .action {
-  padding-top: 50px;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
 }
 
 /* hover  */
+.box_store--item:hover img {
+  transform: scale(1.03, 1.03);
+}
 .box_store--item:hover {
-  transform: scale(1.02, 1.02) translateY(-10px);
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.04);
 }
 
@@ -858,14 +862,13 @@ a {
 
 .products_store_new {
   position: relative;
-  width: 1260px;
+  width: 1292px;
   margin: 0 auto;
 }
 
 .slide_show_store_item {
   position: absolute;
   left: 0;
-  display: flex;
   gap: 20px;
   width: 100%;
   overflow: hidden;
@@ -875,14 +878,34 @@ a {
 }
 
 .slide_show_store_item .item_slide {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  position: relative;
+  display: flex;
+  height: 680px;
   width: 100%;
-  flex: none;
 }
 .box_store--item {
-  width: 100%;
+  transition: all 0.6s ease-in;
+  position: absolute;
+  z-index: 110;
+  width: 170x;
+  height: 90%;
+}
+.slide_show_store_item .item_slide .box_store--item:nth-child(1) {
+  opacity: 0;
+  transform: translateX(-110%);
+}
+.slide_show_store_item .item_slide .box_store--item:nth-child(3) {
+  transform: translateX(105%);
+}
+.slide_show_store_item .item_slide .box_store--item:nth-child(4) {
+  transform: translateX(210%);
+}
+.slide_show_store_item .item_slide .box_store--item:nth-child(5) {
+  transform: translateX(315%);
+}
+.slide_show_store_item .item_slide .box_store--item:nth-child(n + 6) {
+  opacity: 0;
+  transform: translateX(450%);
 }
 
 #vector--right {
@@ -1027,9 +1050,14 @@ a {
 
 /* =======================================banner lớn có video ở giữa ================================= */
 .box_banner_center {
+  transform: translateY(-1200px);
   position: relative;
   width: 1519px;
   margin: 0 auto;
+  transition: all 1s;
+}
+.box_banner_center.scroll_down {
+  transform: translateY(0);
 }
 .h1-content.special_banner {
   font-size: 9rem;
@@ -1155,7 +1183,6 @@ a {
   position: relative;
   width: 1480px;
   border-radius: 15px;
-
 }
 .action_gallery.scroll_down {
   animation: showbanner 1s ease-in forwards;
@@ -1636,7 +1663,7 @@ a {
   transform: scale(1.1);
 }
 
-/* list sản phẩm apple  */
+/* list sản phẩm apple ============= */
 .store_card-products {
   transform: translateY(-1200px);
   position: relative;
@@ -1656,7 +1683,7 @@ a {
 .store_card-products .box_card_item {
   padding-left: 100px;
   position: relative;
-  height: 550px;
+  height: 55rem;
   width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
@@ -1668,15 +1695,15 @@ a {
 .store_card-products .apple_card .item_apple {
   margin: 22px 0;
   transition: all 0.3s ease;
-  box-shadow: 5px 7px 10px 0px rgba(0, 0, 0, 0.05);
-  width: 400px;
+  box-shadow: 2px 3px 5px 4px rgba(0, 0, 0, 0.05);
+  width: 40rem;
   height: 99%;
   border-radius: 15px;
   position: relative;
 }
 .store_card-products .apple_card .item_apple:hover {
   transform: scale(1.015, 1.015);
-  box-shadow: 0px 10px 23px 0px rgba(0, 0, 0, 0.119);
+  box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.119);
 }
 .store_card-products .apple_card .item_apple img {
   width: 100%;
@@ -1687,9 +1714,9 @@ a {
 }
 
 .store_card-products .apple_card .item_apple .content_in_card_apple {
-  padding: 20px;
+  padding: 30px;
   position: absolute;
-  width: 400px;
+  width: 40rem;
   top: 0;
   left: 0;
   z-index: 1;
@@ -1727,7 +1754,7 @@ a {
 
 .btn_apple img {
   transition: 0.5s ease;
-  opacity: 0.7;
+  opacity: 0.5;
   position: absolute;
   z-index: 2;
   display: flex;
@@ -1760,4 +1787,59 @@ a {
 }
 .btn_apple.visible {
   display: block;
+}
+
+/* list apple 2 */
+
+.store_card-products.n2_list
+  .apple_card
+  .item_apple:not(:nth-child(1), :nth-child(8)) {
+  margin: 22px 0;
+  transition: all 0.3s ease;
+  width: 31.3rem;
+  height: 50rem;
+  border-radius: 15px;
+  position: relative;
+}
+
+.store_card-products.n2_list
+  .apple_card
+  .item_apple
+  .content_in_card_apple:not(
+    .item_apple:nth-child(1) .content_in_card_apple,
+    .item_apple:nth-child(8) .content_in_card_apple
+  ) {
+  position: absolute;
+  padding: 30px;
+  width: 100%;
+  height: 15rem;
+  top: 315px;
+  left: 0;
+}
+.store_card-products.n2_list .content_in_card_apple .apple_name-products {
+  font-size: 1.2rem;
+  color: rgba(151, 6, 6, 0.881);
+  font-weight: 600;
+}
+.store_card-products.n2_list .content_in_card_apple .h3-content {
+  font-size: 1.7rem;
+  font-weight: 600;
+  padding: 0 0 25px;
+}
+.store_card-products.n2_list .content_in_card_apple.special .h3-content {
+  padding: 0;
+  font-size: 2.6rem;
+  font-weight: 600;
+}
+.store_card-products.n2_list
+  .apple_card
+  .item_apple
+  img:not(.item_apple:nth-child(1) img, .item_apple:nth-child(8) img) {
+  width: 23rem;
+  height: 23rem;
+  margin: 50px 42px;
+}
+
+.hide_text {
+  visibility: hidden;
 }

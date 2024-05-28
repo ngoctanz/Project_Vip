@@ -109,45 +109,21 @@ listItems.forEach((li, key) => {
 });
 
 // ========================================phần sản phẩm đề xuất=====================================================
+let nextBtns = document.getElementById("vector--right");
+let prevBtns = document.getElementById("vector--left");
+let boxFullItems = document.querySelector(".item_slide");
 
-let scrollContainers = document.querySelectorAll(".slide_show_store_item");
-let nextBtns = document.querySelectorAll("#vector--right");
-let prevBtns = document.querySelectorAll("#vector--left");
-let itemStore = document.querySelectorAll(
-  ".slide_show_store_item .box_store--item"
-);
-
-// dùng mảng để lặp từng phần tử trong scrollContainer với chỉ số là index
-scrollContainers.forEach((scrollContainer, index) => {
-  // lấy chiều rộng tổng kể cả phần k thấy
-  let scrollWidth = scrollContainer.scrollWidth;
-  let nextBtn = nextBtns[index];
-  let prevBtn = prevBtns[index];
-
-  var Jump = 0;
-
-  function scrollLoad() {
-    scrollContainer.scrollLeft = Jump;
-  }
-
-  nextBtn.addEventListener("click", () => {
-    scrollContainer.style.scrollBehavior = "smooth";
-    let checkWidth = itemStore[0].offsetWidth;
-    Jump += checkWidth + 20;
-    if (Jump >= scrollWidth - scrollContainer.clientWidth) {
-      Jump = 0;
-    }
-    scrollLoad();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    scrollContainer.style.scrollBehavior = "smooth";
-    Jump -= scrollContainer.clientWidth / 4;
-    if (Jump < 0) {
-      Jump = scrollWidth - scrollContainer.clientWidth;
-    }
-    scrollLoad();
-  });
+nextBtns.addEventListener("click", () => {
+  let firstItem = document.querySelector(
+    ".item_slide .box_store--item:first-child"
+  );
+  boxFullItems.appendChild(firstItem);
+});
+prevBtns.addEventListener("click", () => {
+  let lastItem = document.querySelector(
+    ".item_slide .box_store--item:last-child"
+  );
+  boxFullItems.prepend(lastItem);
 });
 
 //========================================= phần sp banner lớn ==================================
@@ -305,9 +281,11 @@ listItemIPmini.forEach((item, index) => {
 const btnScroll = document.querySelector(".slide_last_ip .btn-bottom_more");
 const bannerScroll = document.querySelector(".action_gallery");
 const listPrScroll = document.querySelectorAll(".store_card-products");
+const bannerEndWeb = document.querySelector(".box_banner_center ");
 
 btnScroll.addEventListener("click", () => {
   window.scrollBy({ top: 730, behavior: "smooth" });
+  bannerEndWeb.classList.add("scroll_down");
   bannerScroll.classList.add("scroll_down");
   listPrScroll.forEach((item) => {
     item.classList.add("scroll_down");
@@ -316,88 +294,64 @@ btnScroll.addEventListener("click", () => {
 
 // =======================================================================
 // phần list sản phẩm ip
-let boxipProducts = document.querySelector(
+
+const boxipProductsList = document.querySelectorAll(
   ".store_card-products .box_card_item"
 );
-let listProductsIP = document.querySelectorAll(
-  ".store_card-products .apple_card .item_apple"
+const nextProductButtons = document.querySelectorAll(
+  ".btn_apple.right-product img"
 );
-const nextProduct = document.querySelector(".btn_apple.right-product img");
-const prevProduct = document.querySelector(".btn_apple.left-product img");
+const prevProductButtons = document.querySelectorAll(
+  ".btn_apple.left-product img"
+);
 
-let TGindex = 0;
+boxipProductsList.forEach((boxipProducts, index) => {
+  let listProductsIP = boxipProducts.querySelectorAll(
+    ".apple_card .item_apple"
+  );
+  let TGindex = 0;
 
-function updateScroll() {
-  var checkLeft = listProductsIP[TGindex].offsetLeft;
-  boxipProducts.style.scrollBehavior = "smooth";
-  boxipProducts.scrollLeft = checkLeft - 50;
-}
-
-function updateButtons() {
-  if (TGindex === 0) {
-    prevProduct.parentElement.classList.remove("visible");
-  } else {
-    prevProduct.parentElement.classList.add("visible");
+  function updateScroll() {
+    const checkLeft = listProductsIP[TGindex].offsetLeft;
+    boxipProducts.style.scrollBehavior = "smooth";
+    boxipProducts.scrollLeft = checkLeft - 50;
   }
 
-  // mỗi lần chuyển sang item 2 bên dư, tổng thiếu 3 lần
-  if (TGindex === listProductsIP.length - 3) {
-    nextProduct.parentElement.classList.remove("visible");
-  } else {
-    nextProduct.parentElement.classList.add("visible");
-  }
-}
+  function updateButtons() {
+    if (TGindex === 0) {
+      prevProductButtons[index].parentElement.classList.remove("visible");
+    } else {
+      prevProductButtons[index].parentElement.classList.add("visible");
+    }
 
-function nextProductIP() {
-  if (TGindex < listProductsIP.length - 1) {
-    TGindex++;
-    updateScroll();
-    updateButtons();
+    if (TGindex >= listProductsIP.length - 3) {
+      nextProductButtons[index].parentElement.classList.remove("visible");
+    } else {
+      nextProductButtons[index].parentElement.classList.add("visible");
+    }
   }
-}
 
-function prevProductIP() {
-  if (TGindex > 0) {
-    TGindex--;
-    updateScroll();
-    updateButtons();
+  function nextProductIP() {
+    if (TGindex < listProductsIP.length - 1) {
+      TGindex++;
+      updateScroll();
+      updateButtons();
+    }
   }
-}
 
-nextProduct.addEventListener("click", () => {
-  nextProductIP();
+  function prevProductIP() {
+    if (TGindex > 0) {
+      TGindex--;
+      updateScroll();
+      updateButtons();
+    }
+  }
+
+  nextProductButtons[index].addEventListener("click", () => {
+    nextProductIP();
+  });
+
+  prevProductButtons[index].addEventListener("click", () => {
+    prevProductIP();
+  });
 });
-
-prevProduct.addEventListener("click", () => {
-  prevProductIP();
-});
-
-// Cập nhật nút hiển thị ban đầu
-updateButtons();
-// phần drag
-const carousel = document.querySelector(".store_card-products .box_card_item");
-
-let dragStart = false,
-  prevPageX,
-  prevScrollLeft;
-
-const dragStartEvent = (e) => {
-  dragStart = true;
-  prevPageX = e.pageX;
-  prevScrollLeft = carousel.scrollLeft;
-};
-
-const draggingEvent = (e) => {
-  if (!dragStart) return;
-  e.preventDefault();
-  let positionDiff = e.pageX - prevPageX;
-  carousel.scrollLeft = prevScrollLeft - positionDiff;
-};
-
-const dragEndEvent = () => {
-  dragStart = false;
-};
-
-carousel.addEventListener("mousemove", draggingEvent);
-carousel.addEventListener("mousedown", dragStartEvent);
-carousel.addEventListener("mouseup", dragEndEvent);
