@@ -99,6 +99,50 @@ a {
   width: 120px;
   height: 120px;
 }
+
+.li_logo {
+  padding: 0 21px;
+  margin: 0;
+}
+.header .nav .logo_home_nav {
+  transition: 0.3s ease-in;
+  margin-top: -16px;
+  transform: translateY(5px);
+  width: 33px;
+  height: auto;
+}
+.header .nav .logo_home_nav.active--nav {
+  filter: brightness(0) invert(1);
+}
+.header .nav .logo_home_nav:hover {
+  opacity: 0.8;
+  transform: scale(1.01, 1.01);
+}
+.nav__content .name_brand_home {
+  padding: 5px 0 5px;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: 0.3s ease-in;
+  position: relative;
+}
+.nav__content .name_brand_home::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  border-radius: 10px;
+  transition: 0.6s ease;
+}
+.nav__content .name_brand_home:hover:after {
+  width: 100%;
+}
+.nav__content .name_brand_home:hover {
+  color: #0c0900d0;
+  text-shadow: 1px 0 0 currentColor;
+}
 .nav .nav__content {
   display: flex;
 }
@@ -106,9 +150,18 @@ a {
   padding: 8px 21px;
 }
 .nav .nav__content li a {
-  font-size: 1.6rem;
+  transition: 0.5s ease-in;
+  font-weight: 500;
   color: #000;
 }
+.nav .nav__content li a.active--nav {
+  font-weight: 500;
+  color: #000;
+  color: #fff;
+}
+.active--nav {
+}
+
 .header__right {
   display: flex;
   gap: 18px;
@@ -212,13 +265,11 @@ a {
   width: 350px;
   height: auto;
   position: absolute;
-  top: 5%;
+  top: 10%;
   left: 37%;
   /* đảo màu ảnh  */
   filter: invert(1) saturate(0) grayscale(100%);
   animation: delay_logo 1s ease 0.7s forwards;
-}
-.phone_logo {
 }
 .box_video_phone .h1-content {
   width: 100%;
@@ -1035,7 +1086,7 @@ a {
 }
 
 /* phần mini banner dưới xiaomi  */
-.banner_support_mini{
+.banner_support_mini {
   margin: 130px auto 50px;
 }
 .mini_banner {
@@ -1850,14 +1901,25 @@ a {
   transition: 0.2s ease-in;
   box-shadow: 2px 3px 5px 4px rgba(0, 0, 0, 0.05);
 }
+.support_card .list_item_card .item_card.item_sp_1 {
+  background-color: #dfdfdf;
+}
+.mini_banner .item-mini_banner:hover,
 .support_card .list_item_card .item_card:hover {
   box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.119);
   transform: scale(1.02, 1.02);
 }
 .support_card .list_item_card .item_card img {
+  object-fit: cover;
   width: 100%;
   height: 100%;
   border-radius: 15px;
+}
+.support_card .list_item_card .item_card.item_sp_1 img {
+  object-position: top;
+  margin: 125px 35px 0;
+  width: 88%;
+  height: 75%;
 }
 .support_card .content_in_card_support {
   padding: 30px;
@@ -1865,6 +1927,15 @@ a {
   height: 40%;
   top: 0;
 }
+/* item support mini */
+.mini_banner .item-mini_banner {
+  transition: all 0.3s;
+}
+.icon_sp {
+  font-size: 3rem;
+  padding: 0 12px;
+}
+
 .support_card .content_in_card_support span {
   font-size: 1.2rem;
   font-weight: 600;

@@ -3,12 +3,16 @@ const items = document.querySelectorAll(".slide_show .list-item__item");
 const vector_left = document.getElementById("button__vector--left");
 const vector_right = document.getElementById("button__vector--right");
 const dots = document.querySelectorAll(".button--dot span");
+const listNav = document.querySelectorAll(".nav ul li a");
+const logoNav = document.querySelector(".nav .nav__content .logo_home_nav");
 
 let active = 0;
 
 let autoNext = setInterval(() => {
   autoSlide();
 }, 7000);
+
+//
 
 // hàm chính
 function autoSlide() {
@@ -17,10 +21,8 @@ function autoSlide() {
     ".slide_show .list-item__item:first-child"
   );
   list_items.appendChild(firstItem);
-
   // cập nhật dots active
   updateActiveDot();
-
   // reset auto chuyển
   clearInterval(autoNext);
   autoNext = setInterval(() => {
@@ -29,7 +31,6 @@ function autoSlide() {
 }
 
 // hàm cập nhật dots active
-// duyệt qua từng dot với mỗi phần tử mang tên dot và có chỉ số là index(0,1,2..)
 function updateActiveDot() {
   dots.forEach((dot, index) => {
     // sau nhấn lần đầu active=1%4=1 --> active vt 2
@@ -39,10 +40,28 @@ function updateActiveDot() {
       dot.classList.remove("active--dots");
     }
   });
+
+  // Cập nhật nav active
+  // item đầu
+  if (active === 0) {
+    logoNav.classList.add("active--nav");
+    listNav.forEach((nav) => {
+      nav.classList.add("active--nav");
+    });
+  } else {
+    logoNav.classList.remove("active--nav");
+    listNav.forEach((nav) => {
+      nav.classList.remove("active--nav");
+    });
+  }
 }
 
 // nút phải
 vector_right.addEventListener("click", () => {
+  if (active === dots.length - 1) {
+    // active { 0 - 3}
+    active = -1;
+  }
   autoSlide();
 });
 
@@ -54,11 +73,13 @@ vector_left.addEventListener("click", () => {
   document.querySelector(".list-item").prepend(lastItem);
 
   // cập nhật lại dots active
-  active--;
-  if (active < 0) {
+  if (active <= 0) {
     active = dots.length - 1;
+  } else {
+    active--;
   }
   updateActiveDot();
+
   // reset auto chuyển
   clearInterval(autoNext);
   autoNext = setInterval(() => {
