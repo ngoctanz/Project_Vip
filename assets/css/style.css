@@ -136,6 +136,9 @@ a {
   border-radius: 10px;
   transition: 0.6s ease;
 }
+.nav__content .name_brand_home.active--nav::after {
+  background-color: #fff;
+}
 .nav__content .name_brand_home:hover:after {
   width: 100%;
 }
@@ -150,7 +153,7 @@ a {
   padding: 8px 21px;
 }
 .nav .nav__content li a {
-  transition: 0.5s ease-in;
+  transition: 0.3s ease-in;
   font-weight: 500;
   color: #000;
 }
@@ -159,7 +162,10 @@ a {
   color: #000;
   color: #fff;
 }
-.active--nav {
+.nav__content li a.active--nav:hover {
+  opacity: 0.9;
+  color:#fff;
+  text-shadow: 1px 0 0 currentColor;
 }
 
 .header__right {
@@ -1881,8 +1887,8 @@ a {
 }
 
 .support_card {
-  margin-top: 50px;
-  width: 100%;
+  margin: 50px auto 0;
+  width: 1480px;
   height: 500px;
 }
 .support_card .list_item_card {
@@ -1928,6 +1934,9 @@ a {
   top: 0;
 }
 /* item support mini */
+.banner_support_mini {
+  width: 1480px;
+}
 .mini_banner .item-mini_banner {
   transition: all 0.3s;
 }

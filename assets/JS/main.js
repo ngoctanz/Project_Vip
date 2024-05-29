@@ -5,14 +5,15 @@ const vector_right = document.getElementById("button__vector--right");
 const dots = document.querySelectorAll(".button--dot span");
 const listNav = document.querySelectorAll(".nav ul li a");
 const logoNav = document.querySelector(".nav .nav__content .logo_home_nav");
+const nameBrandNav = document.querySelectorAll(
+  ".nav .nav__content .name_brand_home"
+);
 
 let active = 0;
 
 let autoNext = setInterval(() => {
-  autoSlide();
+  nextSlide();
 }, 7000);
-
-//
 
 // hàm chính
 function autoSlide() {
@@ -21,16 +22,10 @@ function autoSlide() {
     ".slide_show .list-item__item:first-child"
   );
   list_items.appendChild(firstItem);
-  // cập nhật dots active
   updateActiveDot();
-  // reset auto chuyển
-  clearInterval(autoNext);
-  autoNext = setInterval(() => {
-    autoSlide();
-  }, 7000);
+  resetAutoSlide();
 }
 
-// hàm cập nhật dots active
 function updateActiveDot() {
   dots.forEach((dot, index) => {
     // sau nhấn lần đầu active=1%4=1 --> active vt 2
@@ -39,34 +34,44 @@ function updateActiveDot() {
     } else {
       dot.classList.remove("active--dots");
     }
+    updateActiveNav();
   });
-
-  // Cập nhật nav active
-  // item đầu
-  if (active === 0) {
-    logoNav.classList.add("active--nav");
-    listNav.forEach((nav) => {
-      nav.classList.add("active--nav");
-    });
-  } else {
-    logoNav.classList.remove("active--nav");
-    listNav.forEach((nav) => {
-      nav.classList.remove("active--nav");
-    });
-  }
 }
-
-// nút phải
-vector_right.addEventListener("click", () => {
+function updateActiveNav() {
+  listNav.forEach((nav, index) => {
+    if (active === 0) {
+      logoNav.classList.add("active--nav");
+      nameBrandNav.forEach((nav) => {
+        nav.classList.add("active--nav");
+      });
+      listNav.forEach((nav) => {
+        nav.classList.add("active--nav");
+      });
+    } else {
+      logoNav.classList.remove("active--nav");
+      nameBrandNav.forEach((nav) => {
+        nav.classList.remove("active--nav");
+      });
+      listNav.forEach((nav) => {
+        nav.classList.remove("active--nav");
+      });
+    }
+  });
+}
+function resetAutoSlide() {
+  clearInterval(autoNext);
+  autoNext = setInterval(() => {
+    nextSlide();
+  }, 7000);
+}
+function nextSlide() {
   if (active === dots.length - 1) {
-    // active { 0 - 3}
+    // active { 0 -> 3}
     active = -1;
   }
   autoSlide();
-});
-
-// nút trái
-vector_left.addEventListener("click", () => {
+}
+function prevSlide() {
   const lastItem = document.querySelector(
     ".slide_show .list-item__item:last-child"
   );
@@ -79,12 +84,17 @@ vector_left.addEventListener("click", () => {
     active--;
   }
   updateActiveDot();
+  resetAutoSlide();
+}
 
-  // reset auto chuyển
-  clearInterval(autoNext);
-  autoNext = setInterval(() => {
-    autoSlide();
-  }, 6000);
+// nút phải
+vector_right.addEventListener("click", () => {
+  nextSlide();
+});
+
+// nút trái
+vector_left.addEventListener("click", () => {
+  prevSlide();
 });
 
 // ================================================js cho trang sản phẩm====================================================
@@ -109,14 +119,14 @@ function changeSlideItem() {
     let width = slides[0].offsetWidth;
     list_slides.style.transform = `translateX(${width * -1 * current}px)`;
   }
+  changeActiveList();
+}
 
-  // đổi hiệu ứng active của danh mục
-  let lastActivelist = document.querySelector(
-    ".slide_show--products .products_list li.active_sp"
-  );
-  if (lastActivelist) {
-    lastActivelist.classList.remove("active_sp");
-  }
+// đổi hiệu ứng active của danh mục
+function changeActiveList() {
+  listItems.forEach((li) => {
+    li.classList.remove("active_sp");
+  });
   listItems[current].classList.add("active_sp");
 }
 
@@ -162,21 +172,19 @@ function nextBannerActive() {
   numberTG += 1;
   let width = bannerItems[numberTG].offsetWidth;
   slideBanner.style.left = width * -1 * numberTG + "px";
-
-  // đổi active
-  let activeClass = document.querySelector(
-    ".banner_box-products .products_list li.active_sp"
-  );
-  if (activeClass) {
-    activeClass.classList.remove("active_sp");
-  }
+  changeActiveBanner();
+}
+// đổi active
+function changeActiveBanner() {
+  productsBtn.forEach((li) => {
+    li.classList.remove("active_sp");
+  });
   productsBtn[numberTG].classList.add("active_sp");
 }
-
 productsBtn.forEach((li, key) => {
   li.addEventListener("click", () => {
-    numberTG = key;
-    nextBannerActive((numberTG -= 1));
+    numberTG = key - 1;
+    nextBannerActive();
   });
 });
 
