@@ -311,6 +311,7 @@ const btnScroll = document.querySelector(".slide_last_ip .btn-bottom_more");
 const bannerScroll = document.querySelector(".action_gallery");
 const listPrScroll = document.querySelectorAll(".store_card-products");
 const bannerEndWeb = document.querySelector(".box_banner_center ");
+const footerScroll = document.querySelector("footer")
 
 btnScroll.addEventListener("click", () => {
   window.scrollBy({ top: 730, behavior: "smooth" });
@@ -319,6 +320,7 @@ btnScroll.addEventListener("click", () => {
   listPrScroll.forEach((item) => {
     item.classList.add("scroll_down");
   });
+  footerScroll.classList.add("scroll_down");
 });
 
 // =======================================================================
