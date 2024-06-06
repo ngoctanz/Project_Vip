@@ -8,12 +8,15 @@ const logoNav = document.querySelector(".nav .nav__content .logo_home_nav");
 const nameBrandNav = document.querySelectorAll(
   ".nav .nav__content .name_brand_home"
 );
+const btnNav = document.querySelector(".btn.btn-header");
+const textInBtn = document.querySelector(".header__right .text_in_btn ");
+const textOutBtn = document.querySelector(".header__right .text_out_btn");
 
 let active = 0;
 
-let autoNext = setInterval(() => {
-  nextSlide();
-}, 7000);
+// let autoNext = setInterval(() => {
+//   nextSlide();
+// }, 7000);
 
 // hàm chính
 function autoSlide() {
@@ -39,7 +42,10 @@ function updateActiveDot() {
 }
 function updateActiveNav() {
   listNav.forEach((nav, index) => {
-    if (active === 0) {
+    if (active === 0 || active === 2) {
+      textOutBtn.classList.add("active--nav");
+      textInBtn.classList.add("active--nav");
+      btnNav.classList.add("active--nav");
       logoNav.classList.add("active--nav");
       nameBrandNav.forEach((nav) => {
         nav.classList.add("active--nav");
@@ -48,6 +54,9 @@ function updateActiveNav() {
         nav.classList.add("active--nav");
       });
     } else {
+      textOutBtn.classList.remove("active--nav");
+      textInBtn.classList.remove("active--nav");
+      btnNav.classList.remove("active--nav");
       logoNav.classList.remove("active--nav");
       nameBrandNav.forEach((nav) => {
         nav.classList.remove("active--nav");
@@ -311,7 +320,7 @@ const btnScroll = document.querySelector(".slide_last_ip .btn-bottom_more");
 const bannerScroll = document.querySelector(".action_gallery");
 const listPrScroll = document.querySelectorAll(".store_card-products");
 const bannerEndWeb = document.querySelector(".box_banner_center ");
-const footerScroll = document.querySelector("footer")
+const footerScroll = document.querySelector("footer");
 
 btnScroll.addEventListener("click", () => {
   window.scrollBy({ top: 730, behavior: "smooth" });
@@ -385,4 +394,19 @@ boxipProductsList.forEach((boxipProducts, index) => {
   prevProductButtons[index].addEventListener("click", () => {
     prevProductIP();
   });
+});
+
+// video trang chủ
+window.addEventListener("resize", function () {
+  var width = window.innerWidth;
+  var videoSource = document.getElementById("videoSource");
+
+  if (width <= 600) {
+    videoSource.src = "./assets/image/Test/video2.mp4";
+  } else {
+    videoSource.src = "assets/image/Home/xiaomi.mp4";
+  }
+
+  // Đảm bảo video được tải lại sau khi thay đổi nguồn
+  videoSource.parentElement.load();
 });
