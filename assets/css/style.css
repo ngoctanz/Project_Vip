@@ -727,7 +727,7 @@ a {
 }
 .action .btn-item-right:hover {
   opacity: 0.8;
-  transform: scale(1.02, 1.02) translateY(-15px);
+  transform: scale(1.02, 1.02) translateY(-20px);
 }
 /* hover riêng cho chữ sp nhỏ  */
 .item_content--box-right:hover .right--mini-desc {
@@ -1532,7 +1532,7 @@ a {
   box-shadow: 2px 4px 10px #999999;
 }
 .list_ip .list_ip__item {
-  transition:1s;
+  transition: 1s;
   position: absolute;
   top: 130px;
   right: 0;
