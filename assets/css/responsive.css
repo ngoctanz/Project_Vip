@@ -478,6 +478,7 @@
     font-size: 1.6rem;
     flex-shrink: 0;
   }
+
   .main-products__content-right .item_content--box-right {
     border-radius: 15px;
   }
@@ -502,7 +503,10 @@
     display: block;
   }
   /* ===========///================== */
-
+  .container{
+    width: 1440px;
+    max-width: 100%;
+  }
   .element_item .h3-content {
     transform: translateY(45px);
     padding: 0 3px;
