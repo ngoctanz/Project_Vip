@@ -203,6 +203,13 @@
     left: 48%;
   }
 
+  .store_card-products {
+    transform: translateY(-200%);
+  }
+  .store_card-products.scroll_down {
+    transform: translateY(-40%);
+  }
+
   /* giới thiệu tính năng  */
 
   .action_gallery .content_left-gallery .content_left-gallery--top {
@@ -221,6 +228,14 @@
   }
 
   /* video end  */
+
+  .box_banner_center {
+    transform: translateY(-1300px);
+  }
+  .box_banner_center.scroll_down {
+    transform: translateY(-20%);
+  }
+
   .video_banner .p-content {
     display: none;
   }
@@ -237,6 +252,8 @@
   }
   /* footer  */
   footer {
+    transform: translateY(-200%);
+
     margin: 0;
   }
 }
@@ -710,8 +727,8 @@
 
   /* footer  */
   footer {
-    transform: translateY(120%);
-    padding: 200px 12px 50px;
+    transform: translateY(7%);
+    padding: 200px 15px 50px;
   }
   .footer_full {
     display: grid !important;

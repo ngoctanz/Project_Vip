@@ -506,7 +506,7 @@ a {
   position: absolute;
   width: 100%;
   padding: 75px 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease-in;
 }
 .container--item-list.show {
   opacity: 1;
@@ -528,7 +528,6 @@ a {
   border-radius: 25px;
   overflow: hidden;
 }
-
 
 /* nội dung bên trong box  */
 .main-products .content-left--box .element_item {
@@ -1166,11 +1165,6 @@ a {
 }
 /* video 1 */
 
-.box_banner_center .video_banner {
-  width: 100%;
-  position: absolute;
-  top: 0;
-}
 .box_banner_center .video_banner .video_box_item {
   position: relative;
 }
@@ -1206,8 +1200,7 @@ a {
 
 /* video 2 */
 .video_box_item.vd2 {
-  position: absolute;
-  top: -5px;
+  margin-top: -3px;
 }
 .video_box_item .content_video_box.vd2 {
   position: absolute;
@@ -2019,11 +2012,11 @@ a {
 footer {
   width: 100%;
   transition: 0.5s ease;
-  margin-top: 750px;
-  padding: 200px 135px 50px;
+  transform: translateY(-200%);
+  padding: 200px 130px 50px;
 }
 footer.scroll_down {
-  transform: translateY(200%);
+  transform: translateY(0);
 }
 footer .footer_full {
   border-bottom: 1px solid #343433;
