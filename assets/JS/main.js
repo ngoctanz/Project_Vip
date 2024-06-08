@@ -120,17 +120,12 @@ var list_slides = document.querySelector(
 const length = slides.length;
 current = 0;
 
-function changeSlideItem() {
-  if (current == length - 1) {
-    list_slides.style.transform = `translateX(0)`;
-  } else {
-    current++;
-    let width = slides[0].offsetWidth;
-    list_slides.style.transform = `translateX(${width * -1 * current}px)`;
-  }
-  changeActiveList();
+function changeSlide() {
+  slides.forEach((slide) => {
+    slide.classList.remove("show");
+  })
+  slides[current].classList.add("show");
 }
-
 // đổi hiệu ứng active của danh mục
 function changeActiveList() {
   listItems.forEach((li) => {
@@ -138,15 +133,14 @@ function changeActiveList() {
   });
   listItems[current].classList.add("active_sp");
 }
-
-listItems.forEach((li, key) => {
-  li.addEventListener("click", function () {
-    current = key;
-    // khi truyền biến current = 0 vào changeSlideItem thì current trong đó sẽ được +1
-    //  nên slide 2 sẽ xuất hiện
-    changeSlideItem((current -= 1));
+listItems.forEach((li, index) => {
+  li.addEventListener("click", () => {
+    current = index;
+    changeActiveList();
+    changeSlide();
   });
-});
+})
+
 
 // ========================================phần sản phẩm đề xuất=====================================================
 let nextBtns = document.getElementById("vector--right");
@@ -401,12 +395,11 @@ window.addEventListener("resize", function () {
   var width = window.innerWidth;
   var videoSource = document.getElementById("videoSource");
 
-  if (width <= 600) {
+  if (width <= 768) {
     videoSource.src = "./assets/image/Test/video2.mp4";
   } else {
     videoSource.src = "assets/image/Home/xiaomi.mp4";
   }
 
-  // Đảm bảo video được tải lại sau khi thay đổi nguồn
   videoSource.parentElement.load();
 });

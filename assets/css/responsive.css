@@ -103,27 +103,22 @@
     left: 32%;
   }
   /* phần sản phẩm samsung  */
-  .products_list {
-    left: 65px;
-    position: absolute;
-  }
-  .background--color {
-    margin-left: 4%;
-  }
-  .slide_show--products .products_list ul {
-    width: 1000px;
-    justify-content: flex-start;
-    gap: 35px;
-  }
-  .slide_show--products .products_list ul li {
-    padding: 12px 0 5px;
-  }
-  /* phần slide  */
-  .main-products {
-    margin-left: -16px;
+  .slide_show--products {
+    width: 98%;
   }
   .main-products__content-left {
-    width: 480px;
+    width: 100%;
+  }
+  .main-products__content-right {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, minmax(auto, 1fr));
+    column-gap: 15px;
+    row-gap: 15px;
+  }
+  .container--item-list .item_content--box-right:nth-child(n + 3) {
+    display: none;
   }
   /* slide 2 */
 
@@ -160,6 +155,9 @@
   .support_card .list_item_card {
     padding: 0;
   }
+  .support_card .list_item_card .item_card {
+    width: 45% !important;
+  }
   /* hỗ trợ mini  */
   .banner_support_mini {
     margin: 130px auto;
@@ -186,8 +184,8 @@
   }
   .slide_last_ip .top-content-apple {
     position: absolute;
-    right: -38%;
-    top: 28%;
+    top: 120px;
+    left: 155%;
   }
   .content_ip_banner .big_logo_apple span {
     font-size: 3rem;
@@ -197,13 +195,16 @@
     margin: -30px 0 0 -30px;
   }
   .content_ip_banner .bottom-content-apple {
-    margin: 52% 0 0 -8%;
+    position: absolute;
+    top: 425px;
+    left: -22%;
   }
   .btn-bottom_more {
     left: 48%;
   }
 
   /* giới thiệu tính năng  */
+
   .action_gallery .content_left-gallery .content_left-gallery--top {
     margin-left: 5%;
   }
@@ -242,7 +243,35 @@
 
 /* Tablet & Mobile */
 @media (min-width: 768px) and (max-width: 991.68px) {
+  .js-content-slide .container--item-list .main-products {
+    margin: 0 auto;
+  }
+  /* phần giới thiệu tính năng  */
+  .action_gallery .img_box {
+    width: 330px;
+    height: 580px;
+    top: 9%;
+  }
+  .action_gallery .img_content {
+    width: 355px !important;
+    height: 630px !important;
+    left: 375px;
+    top: 6%;
+  }
+  .action_gallery .img_content img {
+    border-radius: 50px 170px 0 0;
+  }
+  .img_box::before {
+    top: -21px;
+  }
+  /* ========//========= */
+
+  /* footer  */
+  footer {
+    padding: 0px 70px 50px;
+  }
 }
+
 /* Mobile  */
 @media (max-width: 767.98px) {
   .action_gallery {
@@ -401,43 +430,53 @@
   }
 
   .products_list {
+    width: 90%;
     left: 15px;
     overflow-x: auto;
     scrollbar-width: none;
   }
+  .products_list ul {
+    padding-left: 70%;
+    gap: 20%;
+  }
   .products_list ul li {
     font-size: 1.6rem;
+    flex-shrink: 0;
   }
-  /* phần sản phẩm samsung  */
-  .js-content-slide .container--item-list .main-products {
-    display: grid !important;
-    grid-template-columns: 360px;
-    grid-template-rows: repeat(3, 200px);
-    row-gap: 15px;
-  }
-  .container--item-list .main-products .main-products__content-left {
-    width: 100%;
+
+  .main-products {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, minmax(205px, 1fr));
   }
   .main-products__content-right {
-    display: grid !important;
-    grid-template-columns: repeat(2, 175px);
-    grid-template-rows: repeat(2, 200px);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(auto, 1fr));
+    grid-template-rows: repeat(2, minmax(205px, 1fr));
+    column-gap: 3%;
+    row-gap: 15px;
   }
-  .main-products__content-left .content-left--box {
-    background-position: 50% 20%;
+  .container--item-list .item_content--box-right:nth-child(n + 3) {
+    display: block;
   }
+  /* ===========///================== */
+
   .element_item .h3-content {
-    transform: translateY(35px);
+    transform: translateY(45px);
     padding: 0 3px;
     font-size: 1.6rem;
   }
   .main-products.n1 .element_item .h3-content {
-    transform: translateY(-100px);
+    transform: translateY(-120px);
   }
   .element_item .mini-desc {
     display: none;
   }
-
+  .main-products__content-left .content-left--box {
+    background-position: 50% 20%;
+  }
+  /* content trong ảnh item phải  */
   .element_item__right .right--title-item {
     transform: translateY(30px);
     font-size: 1.2rem !important;
@@ -460,7 +499,7 @@
     visibility: hidden;
   }
 
-  /* phần sản phẩm gợi ý */
+  /*================ phần sản phẩm gợi ý ================*/
   .products_store_new .h2-content {
     width: 100%;
     font-size: 3rem;
@@ -474,21 +513,21 @@
     opacity: 0;
   }
   .slide_show_store_item .item_slide .box_store--item:nth-child(3) {
-    transform: translateX(10%);
+    transform: translateX(13%);
   }
   .slide_show_store_item .item_slide .box_store--item:nth-child(4) {
     opacity: 0;
   }
   #vector--left {
     position: absolute;
-    top: 300%;
+    bottom: 0;
     left: 2%;
     z-index: 11;
   }
   #vector--right {
     position: absolute;
-    top: 300%;
-    right: 7%;
+    bottom: 0;
+    right: 2%;
     z-index: 11;
   }
   /* phần sản phẩm xiaomi  */
@@ -512,36 +551,34 @@
 
   /* content in pic  */
   .slide_show.big_banner .list-item .list-item__item img {
-    object-position: 53% 50%;
+    object-position: center;
   }
   .banner_container {
-    width: 80%;
-    left: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 98%;
+    top: 13%;
+    left: 0;
   }
   #logo_special {
     transform: translateX(-23%);
     width: 200px;
+    transform: translateX(5%);
   }
-  .banner_container.n2 {
-    width: 100%;
-    top: 10%;
-    left: 8%;
-  }
+
   .banner_container .h3-content {
+    width: 100%;
     padding: 0 0 15px;
+  }
+  .banner_container .p-content {
+    width: 90%;
   }
   .slide_show.big_banner .list-item .list-item__item.item3 img {
     object-position: 56% 50% !important;
   }
-  .banner_container.n3 {
-    width: 80%;
-    top: 10%;
-    left: 40px;
-  }
-  .banner_container .p-content,
-  .banner_container .h4-content {
-    display: none;
-  }
+
   .banner_container.n3 img {
     transform: scale(0.6) translateX(-40%);
   }
@@ -555,11 +592,11 @@
     overflow-x: auto;
     overflow-y: hidden;
     display: grid;
-    grid-template-columns: repeat(2, 310px);
+    grid-template-columns: repeat(2, 330px);
     grid-template-rows: 450px;
   }
   .support_card .list_item_card .item_card {
-    width: 100%;
+    width: 100% !important;
   }
   .support_card .list_item_card .item_card.item_sp_1 img {
     margin: 125px 5% 0;
@@ -581,10 +618,10 @@
   }
 
   /* slide ip lớn  */
-  .slide_last_ip .bottom-content-apple {
-    transform: translateY(520%);
+  .slide_last_ip .box-full__content_vector {
+    position: absolute;
+    top: 40px;
   }
-
   .slide_last_ip .bottom-content-apple .color-content,
   .slide_last_ip .btn-bottom_more,
   .slide_last_ip .top-content-apple {
@@ -607,7 +644,7 @@
   .list_ip .list_ip__item:nth-child(3) {
     filter: blur(0);
     opacity: 1;
-    width: 550px;
+    width: 480px;
     transform: translate(14%, -10%);
   }
   .list_ip .list_ip__item:nth-child(n + 4) {
@@ -627,7 +664,7 @@
   .store_card-products .apple_card .item_apple .content_in_card_apple {
     width: 100%;
     padding: 20px;
-  transform: translateY(-13px);
+    transform: translateY(-13px);
   }
   .content_in_card_apple .h3-content {
     font-size: 2.4rem;
@@ -646,7 +683,53 @@
     .content_in_card_apple:not(:nth-child(1), :nth-child(8)) {
     padding: 20px !important;
   }
-  .store_card-products.n2_list .content_in_card_apple .h3-content{
+  .store_card-products.n2_list .content_in_card_apple .h3-content {
     padding: 0 0 10px;
+  }
+
+  /* phần kế cuối  */
+  .box_banner_center {
+    transform: translateY(12%);
+  }
+  .box_banner_center .video_box_item .content_video_box img {
+    width: 80px !important;
+  }
+  .video_box_item.vd2 .h2-content {
+    display: none;
+  }
+  .box_banner_center .video_box_item .h2-content.vd1 {
+    position: absolute;
+    z-index: 3;
+    font-size: 2.6rem;
+    top: 105%;
+    left: 21%;
+    text-align: center;
+    width: 60%;
+  }
+
+  /* footer  */
+  footer {
+    transform: translateY(120%);
+    padding: 200px 20px 50px;
+  }
+  .footer_full {
+    display: grid !important;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 25px;
+  }
+  .column--footer.col1 {
+    grid-row: 1;
+    grid-column: 1 / span 3;
+  }
+  footer .footer_full .column--footer:first-child {
+    width: 100%;
+  }
+  footer .footer_full .column--footer .p-content {
+    width: 100%;
+  }
+  footer .footer_full .column--footer {
+    width: 100%;
   }
 }
