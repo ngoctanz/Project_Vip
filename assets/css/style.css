@@ -1532,7 +1532,7 @@ a {
   box-shadow: 2px 4px 10px #999999;
 }
 .list_ip .list_ip__item {
-  transition: 1s;
+  transition:1s;
   position: absolute;
   top: 130px;
   right: 0;

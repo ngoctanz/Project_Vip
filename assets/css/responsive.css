@@ -503,7 +503,7 @@
     display: block;
   }
   /* ===========///================== */
-  .container{
+  .container {
     width: 1440px;
     max-width: 100%;
   }
@@ -688,16 +688,21 @@
   }
 
   /* vị trí các item ip  */
-  .list_ip .list_ip__item:nth-child(2),
-  .list_ip .list_ip__item:nth-child(1) {
-    transform: translate(-140%, -20%);
+  .list_ip .list_ip__item:nth-child(1){
+    transform: translate(50%, -30%);
+  }
+  .list_ip .list_ip__item:nth-child(2) {
+    transform: translate(-140%, -17%);
   }
   .list_ip .list_ip__item:nth-child(3) {
     filter: blur(0);
     opacity: 1;
     width: 480px;
-    height: 460px!important;
+    height: 460px !important;
     transform: translate(14%, 0);
+  }
+  .list_ip .list_ip__item{
+    height: 180px;
   }
   .list_ip .list_ip__item img {
     width: 100%;
