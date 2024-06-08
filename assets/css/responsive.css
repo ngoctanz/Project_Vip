@@ -654,6 +654,9 @@
     margin-top: 10px;
   }
   /* .support_card mini  */
+  .banner_support_mini .item-mini_banner:nth-child(4) {
+    display: block;
+  }
   .banner_support_mini .mini_banner {
     width: 100%;
     overflow-x: auto;
