@@ -11,6 +11,7 @@ body {
   scroll-behavior: smooth;
   font-size: 1.6rem;
   font-family: "Be Vietnam Pro", sans-serif;
+  height: fit-content;
 }
 /* ==================================common================================== */
 .container {
@@ -2067,7 +2068,7 @@ footer .footer_full li:first-child a {
   color: #000000cc;
   font-weight: 500;
   line-height: 1.86;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .footer_full .column--footer li:last-child a {
   margin-bottom: 0;

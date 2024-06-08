@@ -123,7 +123,7 @@ current = 0;
 function changeSlide() {
   slides.forEach((slide) => {
     slide.classList.remove("show");
-  })
+  });
   slides[current].classList.add("show");
 }
 // đổi hiệu ứng active của danh mục
@@ -139,8 +139,7 @@ listItems.forEach((li, index) => {
     changeActiveList();
     changeSlide();
   });
-})
-
+});
 
 // ========================================phần sản phẩm đề xuất=====================================================
 let nextBtns = document.getElementById("vector--right");
@@ -391,7 +390,8 @@ boxipProductsList.forEach((boxipProducts, index) => {
 });
 
 // video trang chủ
-window.addEventListener("resize", function () {
+
+function checkViewport() {
   var width = window.innerWidth;
   var videoSource = document.getElementById("videoSource");
 
@@ -402,4 +402,7 @@ window.addEventListener("resize", function () {
   }
 
   videoSource.parentElement.load();
-});
+}
+checkViewport();
+
+window.addEventListener("resize", checkViewport);
