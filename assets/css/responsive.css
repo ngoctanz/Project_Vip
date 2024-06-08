@@ -99,7 +99,7 @@
 
   /* chỉnh nút đăng nhập */
   header .header__right {
-    transform: translateY(10px);
+    transform: translateY(15px);
   }
   /* chỉnh slide show home  */
   .slide_show.home .list-item__item--content.n4 {
