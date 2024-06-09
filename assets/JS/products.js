@@ -13,4 +13,26 @@ leftBtn.addEventListener("click", () => {
     ".box_slide_bottom .slide .item:last-child"
   );
   Slider.prepend(lastChild);
-})
+});
+
+// phần chọn sản phẩm
+var product = document.querySelectorAll(".box_img_ontop img");
+var itemChoose = document.querySelectorAll(".color-box .color-item");
+
+itemChoose.forEach((item, index) => {
+  // active màu
+  item.addEventListener("click", () => {
+    itemChoose.forEach((item) => {
+      item.classList.remove("active");
+    });
+    itemChoose[index].classList.add("active");
+  });
+
+  // active sản phẩm
+  item.addEventListener("click", () => {
+    product.forEach((item) => {
+      item.classList.remove("active");
+    });
+    product[index].classList.add("active");
+  });
+});

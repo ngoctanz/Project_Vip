@@ -178,6 +178,7 @@
   .box_img_ontop {
     margin: 0 auto;
     width: 80%;
+    padding-bottom: 80% ;
     height: auto;
   }
   .box_slide_bottom {

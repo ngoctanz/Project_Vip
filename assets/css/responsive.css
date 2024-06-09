@@ -671,6 +671,7 @@
   /* slide ip lớn  */
   .slide_last_ip .box-full__content_vector {
     position: absolute;
+    left: -10px;
     top: 40px;
   }
   .slide_last_ip .bottom-content-apple .color-content,
