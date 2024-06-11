@@ -191,11 +191,6 @@ productsBtn.forEach((li, key) => {
 });
 
 // phần delay animation cho cả trang==========================
-// const logoElement = document.querySelector("#phone_logo");
-const element = document.querySelector(
-  ".list-item__item--content.mobile_phone"
-);
-
 const ipWidget = document.querySelector(
   ".content_left-gallery .content_left-gallery--top .p-content"
 );
@@ -207,7 +202,6 @@ const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
     // Kiểm tra nếu phần tử đang trong viewport
     if (entry.isIntersecting) {
-      // Thêm class để kích hoạt animation
       entry.target.classList.add("show");
     }
   });
@@ -218,7 +212,7 @@ const observer = new IntersectionObserver((entries, observer) => {
 observer.observe(ipImage);
 observer.observe(ipContent);
 observer.observe(ipWidget);
-observer.observe(element);
+
 
 // -------------------phần sản phẩm iphone-------------------
 
@@ -286,7 +280,6 @@ leftVector.addEventListener("click", () => {
 });
 
 // phần giới thiệu tính năng ip15
-
 const listItemIPmini = document.querySelectorAll(
   ".content_left-gallery--bottom li .box_li"
 );
@@ -311,18 +304,12 @@ listItemIPmini.forEach((item, index) => {
 // cuộn lên che đi phần tử dùng cho nhiều phần tử từ sau banner giới thiệu =============================
 const btnScroll = document.querySelector(".slide_last_ip .btn-bottom_more");
 const bannerScroll = document.querySelector(".action_gallery");
-const listPrScroll = document.querySelectorAll(".store_card-products");
-const bannerEndWeb = document.querySelector(".box_banner_center ");
-const footerScroll = document.querySelector("footer");
+
 
 btnScroll.addEventListener("click", () => {
   window.scrollBy({ top: 730, behavior: "smooth" });
-  bannerEndWeb.classList.add("scroll_down");
   bannerScroll.classList.add("scroll_down");
-  listPrScroll.forEach((item) => {
-    item.classList.add("scroll_down");
-  });
-  footerScroll.classList.add("scroll_down");
+  btnScroll.classList.add("hide")
 });
 
 // =======================================================================
