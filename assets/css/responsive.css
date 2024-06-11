@@ -346,7 +346,7 @@
   }
 
   .slide_show .list-item__item img {
-    object-position: 70% 50%;
+    object-position: center;
   }
   .list-item__item.item4 img {
     object-position: right;
@@ -419,7 +419,7 @@
   }
   .list-item__item--content.mobile_phone {
     top: -20%;
-    left: -1%;
+    left: 0;
   }
   .list-item__item--content.mobile_phone #color_in_p {
     color: #000 !important;
@@ -689,7 +689,7 @@
   }
 
   /* vị trí các item ip  */
-  .list_ip .list_ip__item:nth-child(1){
+  .list_ip .list_ip__item:nth-child(1) {
     transform: translate(50%, -30%);
   }
   .list_ip .list_ip__item:nth-child(2) {
@@ -702,7 +702,7 @@
     height: 460px !important;
     transform: translate(14%, 0);
   }
-  .list_ip .list_ip__item{
+  .list_ip .list_ip__item {
     height: 180px;
   }
   .list_ip .list_ip__item img {
