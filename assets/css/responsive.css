@@ -754,6 +754,7 @@
     transform: translateY(12%);
   }
   .box_banner_center .video_box_item .content_video_box img {
+    right: 39% !important;
     width: 80px !important;
   }
   .video_box_item.vd2 .h2-content {

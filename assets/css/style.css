@@ -218,7 +218,7 @@ a {
   max-width: 100%;
   margin: auto;
   width: 100%;
-  height: 730px;
+  height: 812px;
   margin-top: -60px;
   overflow: hidden;
   position: relative;
@@ -236,7 +236,7 @@ a {
   position: absolute;
   transition: 1s;
   width: 100%;
-  height: 780px;
+  height: 812px;
 }
 
 .slide_show.home .list-item__item:nth-child(1) {
@@ -258,7 +258,7 @@ a {
   object-fit: cover;
   object-position: right;
   width: 100%;
-  height: 730px;
+  height: 100%;
 }
 .list-item__item--content .action {
   margin-top: 36px;
@@ -285,8 +285,6 @@ a {
   opacity: 0;
   transition-duration: 0.6s;
   left: 7%;
-}
-.list-item__item--content.mobile_phone.show {
   animation: delay_content 1s ease 1.5s forwards;
 }
 
@@ -453,9 +451,9 @@ a {
   height: 3px;
   background-color: #7e7a7acf;
   margin-bottom: 15px;
+  transition: 0.6s;
 }
-.button--dot .dots.active--dots,
-.button--dot .dots:hover {
+.button--dot .dots.active--dots {
   background-color: #000000;
   border: 2px solid #000000;
 }
@@ -966,14 +964,14 @@ a {
 
 .products_store_new {
   position: relative;
-  width: 85%;
+  width: 80%;
   margin: 0 auto;
 }
 
 .slide_show_store_item {
   position: absolute;
-  left: 0;
   gap: 20px;
+  left: 0;
   width: 100%;
   overflow: hidden;
   scrollbar-width: none;
@@ -999,13 +997,13 @@ a {
   transform: translateX(-110%);
 }
 .slide_show_store_item .item_slide .box_store--item:nth-child(3) {
-  transform: translateX(105%);
+  transform: translateX(110%);
 }
 .slide_show_store_item .item_slide .box_store--item:nth-child(4) {
-  transform: translateX(210%);
+  transform: translateX(215%);
 }
 .slide_show_store_item .item_slide .box_store--item:nth-child(5) {
-  transform: translateX(315%);
+  transform: translateX(320%);
 }
 .slide_show_store_item .item_slide .box_store--item:nth-child(n + 6) {
   opacity: 0;
@@ -1146,7 +1144,7 @@ a {
 
 /* =======================================banner lớn có video ở giữa ================================= */
 .box_banner_center {
-  transform: translateY(-1200px);
+  /* transform: translateY(-1200px); */
   position: relative;
   width: 100%;
   margin: 0 auto;
@@ -1191,7 +1189,7 @@ a {
 .box_banner_center .video_box_item .content_video_box img {
   position: absolute;
   bottom: 135px;
-  right: 46%;
+  right: 45%;
 }
 .box_banner_center .video_box_item .content_video_box .p-content {
   width: 46%;
@@ -1218,22 +1216,6 @@ a {
 
 /* ======================================phần sản phẩm của apple=================================  */
 
-@keyframes hidePage {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-100%);
-  }
-}
-@keyframes hide_content_down {
-  to {
-    transform: translateY(100%);
-    opacity: 1;
-  }
-}
-
 /* phần giới thiệu tính năng ===================================== */
 /* phần content trái -------------------- */
 
@@ -1247,6 +1229,7 @@ a {
   }
 }
 .action_gallery {
+  display: none;
   opacity: 0;
   transition: 1s ease-in;
   margin: 0 auto;
@@ -1256,6 +1239,7 @@ a {
   padding: 400px 0;
 }
 .action_gallery.scroll_down {
+  display: block;
   animation: showbanner 1s ease-in forwards;
 }
 .box-action_gallery {
@@ -1712,6 +1696,9 @@ a {
   align-items: center;
   cursor: pointer;
 }
+.btn-bottom_more.hide {
+  display: none;
+}
 .btn-bottom_more .more_banner_apple {
   transition: 1s;
   opacity: 0;
@@ -1736,17 +1723,15 @@ a {
 }
 
 /* list sản phẩm apple ============= */
+
 .store_card-products {
-  transform: translateY(-1200px);
   position: relative;
   width: 100%;
   margin: 0 auto;
   padding: 30px 0;
   transition: all 1s ease-in;
 }
-.store_card-products.scroll_down {
-  transform: translateY(0);
-}
+
 .title_apple_card {
   padding: 30px 100px;
   font-size: 3rem;
@@ -2013,7 +1998,7 @@ a {
 footer {
   width: 100%;
   transition: 0.5s ease;
-  transform: translateY(-200%);
+  /* transform: translateY(-200%); */
   padding: 200px 130px 50px;
 }
 footer.scroll_down {
