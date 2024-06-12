@@ -43,6 +43,7 @@
     visibility: visible;
   }
   .slide_show .list-item__item img {
+    object-position: 30% 50%;
     width: 100%;
   }
   /* menu drawer  */
@@ -102,8 +103,13 @@
     transform: translateY(15px);
   }
   /* chỉnh slide show home  */
+
   .slide_show.home .list-item__item--content.n4 {
-    left: 13%;
+    left: 25%;
+  }
+  .list-item__item--content.n1,
+  .list-item__item--content.n2 {
+    left: 8%;
   }
   .slide_show.home #phone_logo {
     left: 32%;
@@ -393,6 +399,7 @@
     opacity: 0.4;
   }
   /* phần content trên ảnh  */
+
   .list-item__item--content {
     width: 100% !important;
   }

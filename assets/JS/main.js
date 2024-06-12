@@ -14,9 +14,9 @@ const textOutBtn = document.querySelector(".header__right .text_out_btn");
 
 let active = 0;
 
-// let autoNext = setInterval(() => {
-//   nextSlide();
-// }, 7000);
+let autoNext = setInterval(() => {
+  nextSlide();
+}, 7000);
 
 // hàm chính
 function autoSlide() {
@@ -213,7 +213,6 @@ observer.observe(ipImage);
 observer.observe(ipContent);
 observer.observe(ipWidget);
 
-
 // -------------------phần sản phẩm iphone-------------------
 
 const bgColor = document.querySelectorAll(".background_color .background_item");
@@ -305,11 +304,10 @@ listItemIPmini.forEach((item, index) => {
 const btnScroll = document.querySelector(".slide_last_ip .btn-bottom_more");
 const bannerScroll = document.querySelector(".action_gallery");
 
-
 btnScroll.addEventListener("click", () => {
   window.scrollBy({ top: 730, behavior: "smooth" });
   bannerScroll.classList.add("scroll_down");
-  btnScroll.classList.add("hide")
+  btnScroll.classList.add("hide");
 });
 
 // =======================================================================
