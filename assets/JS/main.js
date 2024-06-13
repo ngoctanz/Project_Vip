@@ -208,7 +208,6 @@ const observer = new IntersectionObserver((entries, observer) => {
 });
 
 // Bắt đầu quan sát phần tử
-
 observer.observe(ipImage);
 observer.observe(ipContent);
 observer.observe(ipWidget);
