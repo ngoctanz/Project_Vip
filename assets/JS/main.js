@@ -287,19 +287,16 @@ listItemIPmini.forEach((item, index) => {
   item.addEventListener("click", () => {
     listItemIPmini.forEach((item) => {
       item.classList.remove("active_ip");
-      // Xóa lớp active khỏi tất cả các ảnh
       imagesIP.forEach((image) => {
         image.classList.remove("active_ip");
       });
     });
-
-    // Thêm lớp active cho ảnh tương ứng với phần tử li được nhấp vào
     imagesIP[index].classList.add("active_ip");
     listItemIPmini[index].classList.add("active_ip");
   });
 });
 
-// cuộn lên che đi phần tử dùng cho nhiều phần tử từ sau banner giới thiệu =============================
+// phần giới thiệu tính năng =============================
 const btnScroll = document.querySelector(".slide_last_ip .btn-bottom_more");
 const bannerScroll = document.querySelector(".action_gallery");
 
